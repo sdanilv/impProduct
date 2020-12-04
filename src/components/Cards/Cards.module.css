@@ -1,0 +1,15 @@
+
+.cardsContainer {
+}
+.cardsRow {
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 1 0px;
+    flex-direction: row;
+    outline: none;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+    position: relative;
+    z-index: 0;
+    padding-right: 16px;
+}

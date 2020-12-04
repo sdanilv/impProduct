@@ -1,0 +1,64 @@
+.container {
+  margin: 10px;
+}
+.buyButton {
+  height: 50px;
+  font-size: 18px;
+}
+
+.cartButtonContainer {
+  margin: 15px 0;
+}
+
+
+.anotherTextContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  position: relative;
+  z-index: 0;
+  background: rgb(255, 255, 255);
+  pointer-events: none;
+}
+
+.anotherText {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 0px;
+  flex-direction: row;
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  position: relative;
+  z-index: 0;
+  margin-top: 22px;
+  margin-left: 16px;
+  margin-bottom: 14px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+  color: rgb(38, 38, 38);
+}
+
+.anotherTextContainerAll {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  margin: 16px 8px 6px;
+  padding: 8px;
+  align-self: stretch;
+  pointer-events: auto;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.3;
+  color: rgb(33, 111, 219);
+}

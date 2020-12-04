@@ -1,0 +1,66 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+    flex-direction: column;
+  flex: 0 1 auto;
+  outline: none;
+  position: relative;
+  z-index: 0;
+  width: 50%;
+  margin-bottom: 16px;
+  padding-left: 16px;
+}
+.cardImage {
+  object-fit: cover;
+  overflow: hidden;
+
+  box-sizing: border-box;
+  width: 140px;
+  height: 140px;
+  border-radius: 5px;
+  border: lightgrey 1px solid;
+}
+.cardName {
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  flex-direction: row;
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  position: relative;
+  z-index: 0;
+  margin-top: 5.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.3;
+  color: rgb(38, 38, 38);
+}
+.cardPrice {
+  box-sizing: border-box;
+  display: inline;
+  flex: 0 1 auto;
+  flex-direction: row;
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  position: relative;
+  z-index: 0;
+  color: rgb(153, 153, 153);
+  font-size: 12px;
+  line-height: 1.3;
+}
+.cardNameContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 0px;
+  flex-direction: column;
+  outline: none;
+  position: relative;
+  z-index: 0;
+  margin-left: 0px;
+
+}

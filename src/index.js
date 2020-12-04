@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'antd/dist/antd.css'
-import Product from './Product';
+import Shop from './Shop';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Product />
+    <Shop />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../Product.module.css";
+import classes from "./Description.module.css";
 import { Collapse } from "antd";
 const { Panel } = Collapse;
 const Description = ({value}) => (
