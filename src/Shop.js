@@ -3,6 +3,7 @@ import BottomMenu from "./components/BottomMenu";
 import Cards from "./components/Cards/Cards";
 import { productsList } from "./components/Tools/productsList";
 import Product from "./components/Product";
+import classes from "./Shop.module.css"
 
 const Shop = () => {
   const [likedProducts, setLikedProducts] = useState([]);
@@ -27,7 +28,7 @@ const Shop = () => {
     setProduct(null);
   };
   return (
-    <>
+    <div className={classes.shop}>
       {product && (
         <Product
           likedProducts={likedProducts}
@@ -50,7 +51,7 @@ const Shop = () => {
         seeAllCards={seeAllCards}
         countLike={likedProducts.length}
       />
-    </>
+    </div>
   );
 };
 

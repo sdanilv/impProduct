@@ -1,3 +1,7 @@
+.shop {
+  position: relative;
+  height: 100vh
+}
 .container {
   margin: 10px;
 }
@@ -35,14 +39,11 @@
   border-radius: 2px;
 
   margin: 0;
-
-
 }
 
 .cartButtonContainer {
   margin: 15px 0;
 }
-
 
 .anotherTextContainer {
   box-sizing: border-box;
@@ -60,7 +61,7 @@
 .anotherText {
   box-sizing: border-box;
   display: flex;
-  flex: 1 1 0px;
+  flex: 1 1 0;
   flex-direction: row;
   outline: none;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica,
