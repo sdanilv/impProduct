@@ -1,22 +1,29 @@
-import React from "react";
+import React, { Fragment } from "react";
 import classes from "./Cards.module.css";
 import Card from "./Card";
-import { products } from "../Tools/Products";
 
-const Cards = ({ setProduct }) => {
+const Cards = ({
+  setProduct,
+  addLike,
+  removeLike,
+  likedProducts,
+  products,
+}) => {
   const productsMap = products.map((product) => (
-    <Card
-      setProduct={() =>{ setProduct(product); console.log(product)}}
-      id={product.id}
-      img={product.img}
-      name={product.name}
-      price={product.price}
-    />
+    <Fragment key={product.id}>
+      <Card
+        setProduct={setProduct}
+        likedProducts={likedProducts}
+        addLike={addLike}
+        removeLike={removeLike}
+        product={product}
+      />
+    </Fragment>
   ));
   let productRows = [];
   for (let i = 0; i < productsMap.length; i += 2) {
     const row = (
-      <div className={classes.cardsRow}  onClick={()=>console.log("hello")}>
+      <div className={classes.cardsRow} key={i}>
         {productsMap[i]}
         {productsMap[i + 1]}
       </div>
@@ -25,7 +32,7 @@ const Cards = ({ setProduct }) => {
     productRows.push(row);
   }
 
-  return <div className={classes.cardsContainer} >{productRows}</div>;
+  return <div className={classes.cardsContainer}>{productRows}</div>;
 };
 
 export default Cards;

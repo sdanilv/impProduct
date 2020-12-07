@@ -1,27 +1,23 @@
 import React from "react";
 import classes from "./Panel.module.css";
-import { Button, Typography } from "antd";
-import { useState } from "react";
-import { LikeIcon, SendIcon } from "./Tools/Icons";
-const { Text } = Typography;
-const Panel = ({ name, price, oldPrice, addLike, addCart, removeLike }) => {
-  const [like, setLike] = useState(false);
-  const heartHandler = () => {
-    setLike(!like);
-    if (like) removeLike();
-    else addLike();
-  };
+import { LikeIcon, LikeIconFull, SendIcon } from "./Tools/Icons";
+
+const Panel = ({ name, price, oldPrice, addLike, liked, removeLike }) => {
   return (
     <div className={classes.panel}>
       <div className={classes.namePanelContainer}>
-        <div  >
-          {name}
-        </div>
+        <div>{name}</div>
         <div className={classes.panelButtonContainer}>
           <div className={classes.sendIconButton}>
             <SendIcon />
           </div>
-          <LikeIcon />
+          <div>
+            {liked ? (
+              <LikeIconFull onClick={() => removeLike()} />
+            ) : (
+              <LikeIcon onClick={() => addLike()} />
+            )}
+          </div>
         </div>
       </div>
       <div className={classes.price}>

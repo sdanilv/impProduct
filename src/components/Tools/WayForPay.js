@@ -1,4 +1,10 @@
-export function Wayforpay() {
+/* eslint-disable */
+export const invoice = (url) => {
+  const wayforpay = new Wayforpay();
+  wayforpay.invoice(url);
+};
+
+function Wayforpay() {
   var frameName = "WayforpayFrame";
   var formName = "WayforpayForm";
 }
@@ -281,6 +287,7 @@ Wayforpay.prototype.createFrameUrl = function (url) {
 
 Wayforpay.prototype.submitData = function (behavior) {
   var form = document.createElement("form");
+  // eslint-disable-next-line
   var i, field, a, e, n;
   var body = document.getElementsByTagName("body")[0];
 
