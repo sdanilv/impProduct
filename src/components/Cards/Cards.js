@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import classes from "./Cards.module.css";
 import Card from "./Card";
+import Empty from "antd/es/empty";
 
 const Cards = ({
   setProduct,
@@ -8,10 +9,13 @@ const Cards = ({
   removeLike,
   likedProducts,
   products,
+  isSearch,
+  returnToHomeTab,
 }) => {
   const productsMap = products.map((product) => (
     <Fragment key={product.id}>
       <Card
+        returnToHomeTab={returnToHomeTab}
         setProduct={setProduct}
         likedProducts={likedProducts}
         addLike={addLike}
@@ -32,7 +36,28 @@ const Cards = ({
     productRows.push(row);
   }
 
-  return <div className={classes.cardsContainer}>{productRows}</div>;
+  return (
+    <div className={classes.cardsContainer}>
+      {productRows.length ? (
+        productRows
+      ) : (
+        <Empty
+          description={
+            isSearch ? (
+              <div>
+                По Вашему запросу ничего не найдено, попробуйте изменить запрос.
+              </div>
+            ) : (
+              <div>
+                Ваш список желаний пуст!
+                <br /> Наполните его товарами нажав на сердечко.
+              </div>
+            )
+          }
+        />
+      )}
+    </div>
+  );
 };
 
 export default Cards;

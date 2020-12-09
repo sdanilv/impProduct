@@ -24,6 +24,11 @@
   border-radius: 5px;
   border: lightgrey 1px solid;
 }
+@media  (min-width: 900px){
+  .cardImage {
+    height: 100%;
+  }
+}
 .cardName {
   box-sizing: border-box;
   flex: 0 1 auto;

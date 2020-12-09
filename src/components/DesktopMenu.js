@@ -1,6 +1,6 @@
 import React from "react";
 import { Badge, Row } from "antd";
-import classes from "./BottomMenu.module.css";
+import classes from "./DesktopMenu.module.css";
 
 import {
   AddIcon,
@@ -12,7 +12,7 @@ import {
   SearchIconFull,
 } from "./Tools/Icons";
 
-const BottomMenu = ({
+const DesktopMenu = ({
   tab,
   selectTab,
   countLike,
@@ -62,15 +62,19 @@ const BottomMenu = ({
             />
           )}
         </Badge>
-        <div className={tab === 5 ? classes.bottomAvaBorder: classes.bottomAvaWithoutBorder}>
+        <div
+          className={
+            tab === 5 ? classes.headerAvaBorder : classes.headerAvaWithoutBorder
+          }
+        >
           <img
             onClick={() => {
               seeAllCards();
               selectTab(5);
             }}
-            className={classes.bottomAva}
+            className={classes.headerAva}
             src="https://mcusercontent.com/ece05dfe187189e74ea128620/images/bcdc32ce-5eae-4db9-9d40-ce08395bb0c4.jpg"
-            alt="bottomAva"
+            alt="headerAva"
           />
         </div>
       </Row>
@@ -78,4 +82,4 @@ const BottomMenu = ({
   );
 };
 
-export default BottomMenu;
+export default DesktopMenu;

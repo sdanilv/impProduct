@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./LinkToShop.module.css";
 
-const LinkToShop = ({  shopName, href }) => (
+const LinkToShop = ({  shopName, href, seeAllCards }) => (
   <div className={classes.linkToShop}>
     <div>
       <img
@@ -14,7 +14,7 @@ const LinkToShop = ({  shopName, href }) => (
     </div>
     <div className={classes.descript}>
       <div className={classes.shopName}>
-        В магазин <a href={href}>{shopName}</a>
+        В магазин <a onClick={()=>seeAllCards()} href="#">{shopName}</a>
       </div>
       <div className={classes.city}>Киев</div>
     </div>

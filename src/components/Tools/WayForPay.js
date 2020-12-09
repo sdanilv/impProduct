@@ -1,7 +1,7 @@
 /* eslint-disable */
+const wayforpay = new Wayforpay();
 export const invoice = (url) => {
-  const wayforpay = new Wayforpay();
-  wayforpay.invoice(url);
+  wayforpay.invoice(url, true);
 };
 
 function Wayforpay() {
