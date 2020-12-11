@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./Panel.module.css";
-import { LikeIcon, LikeIconFull, SendIcon } from "./Tools/Icons";
+import { LikeIcon, LikeIconFull } from "./Tools/Icons";
 
-const Panel = ({ name, price, oldPrice, addLike, liked, removeLike }) => {
+const Panel = ({ name, price,  addLike, liked, removeLike }) => {
   return (
     <div className={classes.panel}>
       <div className={classes.namePanelContainer}>

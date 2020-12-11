@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Row } from "antd";
+import {  Row } from "antd";
 import classes from "./BottomMenu.module.css";
 
 import {
@@ -46,11 +46,13 @@ const BottomMenu = ({
         )}
         <a
           target="_blank"
+          rel="noopener noreferrer"
           href="https://docs.google.com/forms/d/e/1FAIpQLSdn2MwSLuLq3URztfZMojmlcG0fOigl_OebfWoOAbk5K32IPw/viewform?usp=sf_link"
         >
           <AddIcon />
         </a>
-        <Badge size="small" count={countLike}>
+        {/*<Badge size="small" count={countLike}>*/}
+          <div badge={countLike}>
           {tab === 4 ? (
             <LikeIconFull />
           ) : (
@@ -61,7 +63,8 @@ const BottomMenu = ({
               }}
             />
           )}
-        </Badge>
+          </div>
+
         <div className={tab === 5 ? classes.bottomAvaBorder: classes.bottomAvaWithoutBorder}>
           <img
             onClick={() => {

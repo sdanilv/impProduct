@@ -14,7 +14,7 @@ const LinkToShop = ({  shopName, href, seeAllCards }) => (
     </div>
     <div className={classes.descript}>
       <div className={classes.shopName}>
-        В магазин <a onClick={()=>seeAllCards()} href="#">{shopName}</a>
+        {/*В магазин <a onClick={()=>seeAllCards()} href="#">{shopName}</a>*/}
       </div>
       <div className={classes.city}>Киев</div>
     </div>

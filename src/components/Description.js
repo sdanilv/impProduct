@@ -6,11 +6,11 @@ const Description = ({value}) => (
   <div className={classes.collapse}>
     <Collapse accordion>
       <Panel header="Описание" key="1">
-        <p>
-            {value}
-        </p>
+          <p>
+              {value}
+          </p>
       </Panel>
-    </Collapse>
+  </Collapse>
   </div>
 );
 

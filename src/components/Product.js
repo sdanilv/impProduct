@@ -2,9 +2,10 @@ import React from "react";
 import { Carousel, Image } from "antd";
 import classes from "../Shop.module.css";
 import Panel from "./Panel";
-import { invoice, pay } from "./Tools/WayForPay";
+import {  pay } from "./Tools/WayForPay";
 import Description from "./Description";
 import LinkToShop from "./LinkToShop";
+
 const FixedImage = ({ src }) => (
   <div>
     <Image width="100%" height="100%" src={src} />
@@ -41,9 +42,9 @@ const Product = ({
           <button
             className={classes.buyButton}
             type="primary"
-            onClick={
-              () => invoice("https://secure.wayforpay.com/button/bef05b386c02c")
-              // pay()
+            onClick={() =>
+              // invoice("https://secure.wayforpay.com/button/bef05b386c02c")
+              pay(name, price)
             }
           >
             Купить

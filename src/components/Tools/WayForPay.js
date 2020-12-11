@@ -1,7 +1,35 @@
 /* eslint-disable */
+import crypto from "crypto-js";
 const wayforpay = new Wayforpay();
 export const invoice = (url) => {
   wayforpay.invoice(url, true);
+};
+export const pay = (productName, productPrice) => {
+  const obj = {
+    merchantAccount: "test_merch_n1",
+    merchantDomainName: "www.market.ua",
+    orderReference: "D" + new Date().valueOf(),
+    orderDate: new Date().valueOf(),
+    amount: productPrice,
+    currency: "UAH",
+    productName,
+    productCount: 1,
+    productPrice,
+  };
+  const objToStr = Object.values(obj).join(";");
+
+  const merchantSignature = crypto
+    .HmacMD5(objToStr, "flk3409refn54t54t*FNJRET")
+    .toString();
+  wayforpay.run({
+    ...obj,
+    straightWidget: true,
+    partnerCode: ["test_merch_n1", "ottry"],
+    partnerPrice: [productPrice * 0.95, productPrice * 0.05],
+    authorizationType: "SimpleSignature",
+    defaultPaymentSystem: "card",
+    merchantSignature,
+  });
 };
 
 function Wayforpay() {

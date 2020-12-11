@@ -2,7 +2,7 @@ export const productsList = [
   {
     id: 1,
     name: "PUBG T Shirt",
-    price: 499,
+    price: 10,
     description:
       "PUBG T Shirt Graphic Tees is your new tee will be a great gift for him or her. I use only quality babe you got this t shirt ideas such as Fruit of the Loom and gildan. The process used to make the babe t shirt is the latest in ink to garment technology which is also eco-friendly.",
     img: [
@@ -13,7 +13,7 @@ export const productsList = [
   {
     id: 2,
     name: "Hiphop Style Fasion Badges T Shirt",
-    price: 499,
+    price: 350,
     description:
       "Hiphop Style Fasion Badges T Shirt Graphic Tees Size XS,S,M,L,XL,2XL,3XL Unisex for men and women\n" +
       "\n" +
@@ -71,7 +71,7 @@ export const productsList = [
   {
     id: 5,
     name: "Work Wins Over Smarts Quote T Shirt",
-    price: 499.0,
+    price: 700,
     description:
       "Work Wins Over Smarts Quote T Shirt Graphic Tees Size XS,S,M,L,XL,2XL,3XL Unisex for men and women.\n" +
       "\n" +
