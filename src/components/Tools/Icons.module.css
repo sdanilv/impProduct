@@ -1,0 +1,8 @@
+.img {
+    cursor: none;
+}
+@media (min-width: 900px) {
+  .img {
+  cursor: pointer;
+  }
+}

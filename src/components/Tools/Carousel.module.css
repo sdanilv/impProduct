@@ -1,0 +1,29 @@
+.dotes {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 10px;
+  left: 40%;
+}
+.carousel {
+  position: relative;
+}
+.dote {
+  cursor: pointer;
+  color: white;
+  padding: 5px;
+}
+.select {
+  color: #0095f6;
+}
+.img {
+  max-width: 0;
+  overflow: hidden;
+  height: 50vh;
+  transition: all 150ms ease-in-out;
+  object-fit: cover;
+}
+.selectImg {
+  max-width: 100vw;
+}

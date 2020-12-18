@@ -1,0 +1,54 @@
+.menu {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  width: 100%;
+  height: 8vh;
+  background: white;
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  position: sticky;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+
+.linkToShop {
+  display: flex;
+}
+.menuAva {
+  /*width: 24px;*/
+  /*height: 24px;  */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+:root {
+  --img-size: 24px;
+}
+.menuAvaBorder {
+  border-radius: 50%;
+  border: 1px black solid;
+  width: var(--img-size);
+  height: var(--img-size);
+  padding: 1px;
+}
+
+.menuAvaWithoutBorder {
+  width: var(--img-size);
+  height: var(--img-size);
+  padding: 2px;
+}
+
+.menu a{
+  cursor: none;
+}
+
+@media (min-width: 900px) {
+  .menu a{
+    cursor: pointer;
+  }
+}

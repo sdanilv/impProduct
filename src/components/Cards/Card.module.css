@@ -73,7 +73,8 @@
 }
 .cardLike {
   margin-top: 5px;
-  cursor: pointer;
+  /*cursor: pointer;*/
+  /*pointer-events: none;*/
 }
 .flex {
   display: flex;

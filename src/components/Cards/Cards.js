@@ -1,28 +1,15 @@
-import React, { Fragment } from "react";
+import React from "react";
 import classes from "./Cards.module.css";
 import Card from "./Card";
-import Empty from "antd/es/empty";
+import Empty from "./Empty";
+import { useLocation } from "react-router-dom";
 
-const Cards = ({
-  setProduct,
-  addLike,
-  removeLike,
-  likedProducts,
-  products,
-  isSearch,
-  returnToHomeTab,
-}) => {
+const Cards = ({ products, ...props }) => {
+  const { pathname } = useLocation();
+
+  if (pathname === "/profile") return <></>;
   const productsMap = products.map((product) => (
-    <Fragment key={product.id}>
-      <Card
-        returnToHomeTab={returnToHomeTab}
-        setProduct={setProduct}
-        likedProducts={likedProducts}
-        addLike={addLike}
-        removeLike={removeLike}
-        product={product}
-      />
-    </Fragment>
+    <Card key={product.id} {...props} product={product} />
   ));
   let productRows = [];
   for (let i = 0; i < productsMap.length; i += 2) {
@@ -32,30 +19,12 @@ const Cards = ({
         {productsMap[i + 1]}
       </div>
     );
-
     productRows.push(row);
   }
 
   return (
     <div className={classes.cardsContainer}>
-      {productRows.length ? (
-        productRows
-      ) : (
-        <Empty
-          description={
-            isSearch ? (
-              <div>
-                По Вашему запросу ничего не найдено, попробуйте изменить запрос.
-              </div>
-            ) : (
-              <div>
-                Ваш список желаний пуст!
-                <br /> Наполните его товарами нажав на сердечко.
-              </div>
-            )
-          }
-        />
-      )}
+      {productRows.length ? productRows : <Empty />}
     </div>
   );
 };

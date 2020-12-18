@@ -1,5 +1,5 @@
 /* eslint-disable */
-import crypto from "crypto-js";
+import crypto from "crypto";
 const wayforpay = new Wayforpay();
 export const invoice = (url) => {
   wayforpay.invoice(url, true);
@@ -18,9 +18,14 @@ export const pay = (productName, productPrice) => {
   };
   const objToStr = Object.values(obj).join(";");
 
-  const merchantSignature = crypto
-    .HmacMD5(objToStr, "flk3409refn54t54t*FNJRET")
-    .toString();
+  // const merchantSignature = crypto
+  //   .HmacMD5(objToStr, "flk3409refn54t54t*FNJRET")
+  //   .toString();
+
+  const merchantSignature = crypto.createHmac("md5", "flk3409refn54t54t*FNJRET")
+      .update(objToStr)
+      .digest("hex");
+
   wayforpay.run({
     ...obj,
     straightWidget: true,

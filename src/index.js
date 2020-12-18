@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import 'antd/dist/antd.css'
-import Shop from './Shop';
+
+import Shop from './components/Shop';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

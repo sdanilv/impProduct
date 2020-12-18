@@ -1,0 +1,24 @@
+.shop {
+  display: flex;
+flex-direction: column;
+position: relative;
+height: 100%;
+}
+.shop.reverse{
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 900px) {
+
+  .shop {
+    padding: 0 20vw 0 20vw;
+  }
+
+}
+
+.cartButtonContainer {
+  margin: 15px 0;
+}
+
+
+

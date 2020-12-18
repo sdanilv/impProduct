@@ -1,0 +1,36 @@
+:root {
+  --profile-size: 180px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+  margin: 16px;
+  padding-bottom: 70px;
+}
+.ava {
+  width: var(--profile-size);
+  height: var(--profile-size);
+  border-radius: 50%;
+  object-fit: cover;
+}
+.header {
+  display: flex;
+}
+
+.title {
+  padding: 10px;
+}
+.titleName {
+  font-weight: bold;
+  font-size: large;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 15vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}

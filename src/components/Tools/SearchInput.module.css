@@ -1,0 +1,36 @@
+.search {
+  display: flex;
+  height: 3em;
+align-items: center;
+  padding-left:3px;
+  margin: 16px;
+  border-radius: 5px;
+  border: 1px #0095f6 solid;
+
+}
+
+.searchInput {
+  font-size: 1.2em;
+  height: 2em;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+}
+
+.searchInput:active {
+  border-color: lightblue;
+}
+.searchInput::after {
+  content: "5";
+  width: 10px;
+}
+.searchButton {
+  background: white;
+  border: none;
+  margin-right: 10px;
+  outline: none;
+}
+.searchButton:hover {
+  cursor: pointer;
+}

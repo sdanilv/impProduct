@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./LinkToShop.module.css";
+import {Link} from "react-router-dom";
 
 const LinkToShop = ({  shopName, href, seeAllCards }) => (
   <div className={classes.linkToShop}>
@@ -14,7 +15,7 @@ const LinkToShop = ({  shopName, href, seeAllCards }) => (
     </div>
     <div className={classes.descript}>
       <div className={classes.shopName}>
-        {/*В магазин <a onClick={()=>seeAllCards()} href="#">{shopName}</a>*/}
+        В магазин <Link to={href}>{shopName}</Link>
       </div>
       <div className={classes.city}>Киев</div>
     </div>

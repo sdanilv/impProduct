@@ -79,6 +79,10 @@ export const productsList = [
     img: [
       "https://mcusercontent.com/ece05dfe187189e74ea128620/images/bcdc32ce-5eae-4db9-9d40-ce08395bb0c4.jpg",
       "https://mcusercontent.com/ece05dfe187189e74ea128620/images/02028856-6060-490c-bae7-ef496632f682.jpg",
+      "https://mcusercontent.com/ece05dfe187189e74ea128620/images/bcdc32ce-5eae-4db9-9d40-ce08395bb0c4.jpg",
+      "https://mcusercontent.com/ece05dfe187189e74ea128620/images/02028856-6060-490c-bae7-ef496632f682.jpg",
+      "https://mcusercontent.com/ece05dfe187189e74ea128620/images/bcdc32ce-5eae-4db9-9d40-ce08395bb0c4.jpg",
+      "https://mcusercontent.com/ece05dfe187189e74ea128620/images/02028856-6060-490c-bae7-ef496632f682.jpg",
     ],
   },
 ];
