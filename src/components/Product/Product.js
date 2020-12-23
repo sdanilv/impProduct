@@ -9,13 +9,13 @@ import AnotherText from "./AnotherText";
 import { useParams } from "react-router-dom";
 import { productsList } from "../../Utilits/productsList";
 
-const Product = ({ addLike, removeLike,  likedProducts }) => {
+const Product = ({ addLike, removeLike,  isLiked }) => {
   const params = useParams();
   const product = productsList.find(({ id }) => +params.id === id);
   if (!product) return <></>;
 
   const { id, name, price, description, img } = product;
-  const liked = likedProducts.includes(id);
+  const liked = isLiked(id);
   return (
     <>
       <div className={classes.panel}>

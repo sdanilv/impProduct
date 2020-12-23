@@ -1,31 +1,32 @@
 import React from "react";
 import classes from "./Card.module.css";
 import { LikeIcon, LikeIconFull } from "../Tools/Icons";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Card = ({
   product,
 
   removeLike,
   addLike,
-  likedProducts,
-  returnToHomeTab,
+  isLiked,
+  seeAllCards,
 }) => {
   const { name, price, img, id } = product;
-  const liked = likedProducts.includes(id);
+  const liked = isLiked(id);
   return (
     <div className={classes.card}>
-        <Link to={`/product/${id}`}>
-      <img
-        className={classes.cardImage}
-        onClick={() => {
-          returnToHomeTab();
+      <Link to={`/product/${id}`}>
+        <img
+          className={classes.cardImage}
+          onClick={() => {
+            seeAllCards();
 
-          window.scrollTo(0, 0);
-        }}
-        alt="cardImage"
-        src={img[0]}
-      /></Link>
+            window.scrollTo(0, 0);
+          }}
+          alt="cardImage"
+          src={img[0]}
+        />
+      </Link>
       <div className={classes.flex}>
         <div className={classes.cardNameContainer}>
           <div className={classes.cardName}>{name}</div>

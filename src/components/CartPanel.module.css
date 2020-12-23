@@ -1,0 +1,26 @@
+.cartPanel {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  width: calc(100% - 40px);
+  height: 3em;
+  position: sticky;
+  bottom: 9vh;
+  left: 0;
+  border-radius: 5px;
+  background: #3d3d3d;
+  opacity: 90%;
+  color: white;
+  margin: 0 10px 0 10px
+}
+.firstSub {
+  display: flex;
+  align-items: center;
+}
+.cartPanelImg {
+  height: 2em;
+  width: 2em;
+  margin-right: 10px;
+  border-radius: 5px;
+}

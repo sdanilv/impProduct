@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import classes from "./Carousel.module.css";
+import {useEffect} from "react";
 const Carousel = ({ imgs = [] }) => {
+  useEffect(()=>setViewImg(0), [imgs]);
   const [viewImg, setViewImg] = useState(0);
   const [start, setStart] = useState(0);
   const next = () => {
@@ -40,7 +42,7 @@ const Carousel = ({ imgs = [] }) => {
         onClick={() => setViewImg(i)}
         className={`${classes.dote} ${viewImg === i && classes.select}`}
       >
-        •
+        _
       </span>
     );
   return (
