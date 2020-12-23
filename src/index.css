@@ -41,3 +41,7 @@ code {
 [badge=""]:after {
   display: none;
 }
+
+:root{
+  --max-screen-widt: 900px
+}

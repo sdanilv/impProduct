@@ -20,16 +20,18 @@
 }
 
 .collapsible::before {
-  content: ">";
+  content: "+";
   float: left;
-  transition: transform 0.5s ease;
+  transition: all 0.5s ease;
   margin-right: 5px;
 }
 
 .active::before {
-  content: ">";
+  content: "+";
+  transform:rotate3d(1, 0,0,80deg) scaleX(5);
+
   transition: transform 0.5s ease;
-  transform: rotate(90deg);
+  /*transform: rotate(90deg);*/
 }
 
 .content {

@@ -8,8 +8,13 @@
 }
 .carousel {
   position: relative;
+  width: 50%;
+  height: 50vh;
 }
+
 .dote {
+  font-size: 2em;
+  font-weight: bolder;
   cursor: pointer;
   color: white;
   padding: 5px;
@@ -18,12 +23,24 @@
   color: #0095f6;
 }
 .img {
+  position: absolute;
+  top:0;
+  left: 0;
   max-width: 0;
   overflow: hidden;
   height: 50vh;
-  transition: all 150ms ease-in-out;
+  transition: all 250ms ease-in-out;
   object-fit: cover;
 }
 .selectImg {
   max-width: 100vw;
+}
+
+@media  (max-width:  var(--max-screen-widt)){
+  .carousel {
+    width: 100%;
+  }
+  .img {
+    position: inherit;
+  }
 }

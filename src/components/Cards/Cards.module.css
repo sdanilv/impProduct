@@ -1,7 +1,7 @@
 
 .cardsContainer {
-    margin-top: 5px;
-    min-height: 92vh;
+    margin-top: 7px;
+    min-height: calc(92vh - 9px);
 }
 .cardsRow {
     box-sizing: border-box;

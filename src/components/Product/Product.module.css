@@ -2,7 +2,7 @@
 .carousel {
     width: 100%;
 }
-@media (min-width: 900px) {
+@media (min-width: var(--max-screen-widt)) {
     .panel {
         padding: 16px;
         display: flex;
