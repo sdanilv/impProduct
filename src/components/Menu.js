@@ -2,6 +2,8 @@ import React from "react";
 import classes from "./Menu.module.css";
 import {
   AddIcon,
+  CartIcon,
+  CartIconFull,
   HomeIcon,
   HomeIconFull,
   LikeIcon,
@@ -11,16 +13,12 @@ import {
 } from "./Tools/Icons";
 import { Link, useLocation } from "react-router-dom";
 
-const Menu = ({
-  countLike,
-  seeLikedCards,
-  seeAllCards,
-}) => {
+const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount }) => {
   const { pathname } = useLocation();
   return (
     <div className={classes.menu}>
       <Link to="/home">
-        {pathname === "/home"||pathname === "/" ? (
+        {pathname === "/home" || pathname === "/" ? (
           <HomeIconFull />
         ) : (
           <HomeIcon
@@ -37,18 +35,23 @@ const Menu = ({
           <SearchIcon
             onClick={() => {
               window.scrollTo(0, 0);
-                seeAllCards();
+              seeAllCards();
             }}
           />
         )}
       </Link>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdn2MwSLuLq3URztfZMojmlcG0fOigl_OebfWoOAbk5K32IPw/viewform?usp=sf_link"
-      >
-        <AddIcon />
-      </a>
+      {/*<a*/}
+      {/*  target="_blank"*/}
+      {/*  rel="noopener noreferrer"*/}
+      {/*  href="https://docs.google.com/forms/d/e/1FAIpQLSdn2MwSLuLq3URztfZMojmlcG0fOigl_OebfWoOAbk5K32IPw/viewform?usp=sf_link"*/}
+      {/*>*/}
+      {/*  <AddIcon />*/}
+      {/*</a>*/}
+      <Link to="/cart">
+        <div badge={cartCount}>
+          {pathname === "/cart" ? <CartIconFull /> : <CartIcon />}
+        </div>
+      </Link>
       <Link to="/like">
         <div badge={countLike}>
           {pathname === "/like" ? (

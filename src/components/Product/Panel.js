@@ -1,12 +1,13 @@
 import React from "react";
 import classes from "./Panel.module.css";
-import { LikeIcon, LikeIconFull } from "../Tools/Icons";
+import {CartIcon, LikeIcon, LikeIconFull} from "../Tools/Icons";
 
-const Panel = ({ name, price, addLike, liked, removeLike }) => (
+const Panel = ({ name, price, addLike, liked, removeLike, addToCart }) => (
   <div className={classes.panel}>
     <div className={classes.namePanelContainer}>
       <div>{name}</div>
       <div className={classes.panelButtonContainer}>
+          {<CartIcon onClick={() => addToCart()} />}
           {liked ? (
             <LikeIconFull onClick={() => removeLike()} />
           ) : (

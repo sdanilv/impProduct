@@ -4,11 +4,11 @@ import Card from "./Card";
 import Empty from "./Empty";
 import { useLocation } from "react-router-dom";
 
-const Cards = ({ products, ...props }) => {
+const Cards = ({ cards, ...props }) => {
   const { pathname } = useLocation();
 
-  if (pathname === "/profile") return <></>;
-  const productsMap = products.map((product) => (
+  if (pathname === "/profile" || pathname === "/cart") return <></>;
+  const productsMap = cards.map((product) => (
     <Card key={product.id} {...props} product={product} />
   ));
   let productRows = [];

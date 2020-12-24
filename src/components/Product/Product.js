@@ -9,7 +9,7 @@ import AnotherText from "./AnotherText";
 import { useParams } from "react-router-dom";
 import { productsList } from "../../Utilits/productsList";
 
-const Product = ({ addLike, removeLike,  isLiked }) => {
+const Product = ({ addLike, removeLike,  isLiked, addToCart }) => {
   const params = useParams();
   const product = productsList.find(({ id }) => +params.id === id);
   if (!product) return <></>;
@@ -24,6 +24,7 @@ const Product = ({ addLike, removeLike,  isLiked }) => {
           <Panel
             addLike={() => addLike(id)}
             removeLike={() => removeLike(id)}
+            addToCart={() => addToCart(product)}
             oldPrice={500.0}
             {...{ liked, name, price }}
           />
@@ -35,11 +36,7 @@ const Product = ({ addLike, removeLike,  isLiked }) => {
             Купить
           </button>
           <Spoiler name="Описание" value={description} />
-          <LinkToShop
-            href="/home"
-            avaSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            shopName="EasyShop"
-          />
+          <LinkToShop />
         </div>
       </div>
       <AnotherText />

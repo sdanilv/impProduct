@@ -24,3 +24,13 @@
   margin-right: 10px;
   border-radius: 5px;
 }
+
+.cartPanelLink{
+  text-decoration: none;
+  color: white;
+}
+.destroy{
+  transition: all 1s ;
+  transform: scaleX(0) scaleY(0.5) translateY(12vh);
+z-index: 3;
+}

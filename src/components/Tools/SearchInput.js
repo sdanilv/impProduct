@@ -4,7 +4,7 @@ import { SearchIconFull} from "./Icons";
 
 const SearchInput = (props) => (
   <div className = {classes.search}>
-    <input {...props} className={classes.searchInput}/>
+    <input {...props}  placeholder="Введите запрос" className={classes.searchInput}/>
     <button  className={classes.searchButton}><SearchIconFull size={16} /></button>
   </div>
 );

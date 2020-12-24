@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./LinkToShop.module.css";
 import {Link} from "react-router-dom";
 
-const LinkToShop = ({  shopName, href, seeAllCards }) => (
+const LinkToShop = () => (
   <div className={classes.linkToShop}>
     <div>
       <img
@@ -15,7 +15,7 @@ const LinkToShop = ({  shopName, href, seeAllCards }) => (
     </div>
     <div className={classes.descript}>
       <div className={classes.shopName}>
-        В магазин <Link to={href}>{shopName}</Link>
+        В магазин <Link to="/home">"EasyShop"</Link>
       </div>
       <div className={classes.city}>Киев</div>
     </div>

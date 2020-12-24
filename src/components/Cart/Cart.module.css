@@ -1,0 +1,27 @@
+.cart {
+    min-height: calc(92vh - 2px);
+    display: flex;
+    flex-direction: column;
+}
+.cartLink{
+    margin: 16px;
+}
+.totalCount{
+    font-weight: bold;
+    border-top: 1px black solid;
+    padding: 16px;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.buyButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ height: 8vh;
+    background: #216fdb;
+    margin: 16px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+}

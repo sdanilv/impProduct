@@ -1,11 +1,10 @@
 import React from "react";
-import classes from "./Icons.module.css"
+import classes from "./Icons.module.css";
 
 export const SendIcon = (props) => (
   <svg
- className={classes.img}
+    className={classes.img}
     aria-label="Поделиться публикацией"
-   
     fill="#262626"
     height="24"
     viewBox="0 0 48 48"
@@ -17,9 +16,8 @@ export const SendIcon = (props) => (
 );
 export const HomeIconFull = (props) => (
   <svg
- className={classes.img}
+    className={classes.img}
     aria-label="Главная"
-   
     fill="#262626"
     height="24"
     viewBox="0 0 48 48"
@@ -32,9 +30,8 @@ export const HomeIconFull = (props) => (
 
 export const HomeIcon = (props) => (
   <svg
- className={classes.img}
+    className={classes.img}
     aria-label="Главная"
-   
     fill="#262626"
     height="24"
     viewBox="0 0 48 48"
@@ -48,7 +45,7 @@ export const SearchIcon = (props) => {
   const { size = 24 } = props;
   return (
     <svg
-   className={classes.img}
+      className={classes.img}
       aria-label="Поиск и интересное"
       fill="#262626"
       height={size}
@@ -66,9 +63,8 @@ export const SearchIconFull = (props) => {
   const { size = 24 } = props;
   return (
     <svg
-   className={classes.img}
+      className={classes.img}
       aria-label="Поиск и интересное"
-     
       fill="#262626"
       height={size}
       viewBox="0 0 48 48"
@@ -81,9 +77,8 @@ export const SearchIconFull = (props) => {
 };
 export const AddIcon = (props) => (
   <svg
- className={classes.img}
+    className={classes.img}
     aria-label="Новая публикация"
-   
     fill="#262626"
     height="24"
     viewBox="0 0 48 48"
@@ -97,9 +92,8 @@ export const AddIcon = (props) => (
 );
 export const LikeIcon = (props) => (
   <svg
- className={classes.img}
+    className={classes.img}
     aria-label="Действия"
-   
     fill="#262626"
     height="24"
     viewBox="0 0 48 48"
@@ -111,9 +105,8 @@ export const LikeIcon = (props) => (
 );
 export const LikeIconFull = (props) => (
   <svg
- className={classes.img}
+    className={classes.img}
     aria-label="Действия"
-   
     fill="#262626"
     height="24"
     viewBox="0 0 48 48"
@@ -123,3 +116,32 @@ export const LikeIconFull = (props) => (
     <path d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
   </svg>
 );
+
+export const CartIcon = (props) => (
+  <svg
+    className={classes.img}
+    height="24"
+    width="24"
+    fill="#262626"
+    viewBox="0 -31 512.00026 512"
+    {...props}
+  >
+    <path d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0" />
+    <path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0" />
+    <path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0" />
+  </svg>
+);
+export const CartIconFull = (props) => (
+<svg
+    className={classes.img}
+    fill="#262626"
+    height="24"
+    width="24"
+    viewBox="0 -31 512.00026 512"
+    {...props}
+>
+  <path d="m166 300.003906h271.003906c6.710938 0 12.597656-4.4375 14.414063-10.882812l60.003906-210.003906c1.289063-4.527344.40625-9.390626-2.433594-13.152344-2.84375-3.75-7.265625-5.964844-11.984375-5.964844h-365.632812l-10.722656-48.25c-1.523438-6.871094-7.617188-11.75-14.648438-11.75h-91c-8.289062 0-15 6.710938-15 15 0 8.292969 6.710938 15 15 15h78.960938l54.167968 243.75c-15.9375 6.929688-27.128906 22.792969-27.128906 41.253906 0 24.8125 20.1875 45 45 45h271.003906c8.292969 0 15-6.707031 15-15 0-8.289062-6.707031-15-15-15h-271.003906c-8.261719 0-15-6.722656-15-15s6.738281-15 15-15zm0 0" />
+  <path d="m151 405.003906c0 24.816406 20.1875 45 45.003906 45 24.8125 0 45-20.183594 45-45 0-24.8125-20.1875-45-45-45-24.816406 0-45.003906 20.1875-45.003906 45zm0 0" />
+  <path d="m362.003906 405.003906c0 24.816406 20.1875 45 45 45 24.816406 0 45-20.183594 45-45 0-24.8125-20.183594-45-45-45-24.8125 0-45 20.1875-45 45zm0 0" />
+</svg>
+)

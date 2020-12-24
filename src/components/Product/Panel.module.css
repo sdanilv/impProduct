@@ -15,8 +15,8 @@
 .panelButtonContainer {
     display: flex;
     /*flex-direction: column;*/
-    justify-content: flex-end;
-    width: 30%;
+    justify-content: space-between;
+    width: 15%;
 }
 
 .price {
