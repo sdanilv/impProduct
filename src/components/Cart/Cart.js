@@ -1,29 +1,42 @@
-import React, { useReducer } from "react";
+import React from "react";
 import classes from "./Cart.module.css";
 import CartProduct from "./CartProduct";
 import LinkToShop from "../Product/LinkToShop";
+import { pay } from "../../Utilits/WayForPay";
 
-const a = {
-  products: [
-    { id: 1, price: 10, count: 2, name: "Work Wins Over Smarts Quote T Shirt" },
-  ],
-  sum: 20,
-};
-const Cart = ({  cart }) => {
+const Cart = ({ cart }) => {
   const { sum, products, ...cartEvent } = cart;
   if (!products) return <></>;
-  const productsMap = products.map((product) => (
-    <CartProduct {...product} {...cartEvent} />
-  ));
+  const productName = [];
+  const productPrice = [];
+  const productCount = [];
+  const productsMap = products.map((product) => {
+    productName.push(product.name);
+    productPrice.push(product.price);
+    productCount.push(product.count);
+    return <CartProduct key={product.id} {...product} {...cartEvent} />;
+  });
+
+  const buyButtonHandler = () => {
+    pay(productName, productPrice, productCount, sum);
+  };
+
   return (
     <div className={classes.cart}>
-      <div className={classes.cartLink}> <LinkToShop/> </div>
+      <div className={classes.cartLink}>
+        <LinkToShop />
+      </div>
       <div className={classes.productsTable}>{productsMap}</div>
       <div className={classes.totalCount}>
         <div>Всего:</div>
         <div>{sum}грн</div>
       </div>
-      <div className={classes.buyButton}> Купить</div>
+      <div
+        onClick={buyButtonHandler}
+        className={`${classes.buyButton} ${!sum && classes.notActive}`}
+      >
+        Купить
+      </div>
     </div>
   );
 };

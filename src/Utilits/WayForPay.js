@@ -4,33 +4,37 @@ const wayforpay = new Wayforpay();
 export const invoice = (url) => {
   wayforpay.invoice(url, true);
 };
-export const pay = (productName, productPrice) => {
+export const pay = (productName, productPrice, productCount=1, sum=productPrice) => {
   const obj = {
     merchantAccount: "test_merch_n1",
     merchantDomainName: "www.market.ua",
     orderReference: "D" + new Date().valueOf(),
     orderDate: new Date().valueOf(),
-    amount: productPrice,
+    amount: sum,
     currency: "UAH",
+  };
+  const pr = {
     productName,
-    productCount: 1,
+    productCount,
     productPrice,
   };
-  const objToStr = Object.values(obj).join(";");
+  const objToStr = Object.values(obj)
+    .concat(pr.productName)
+    .concat(pr.productCount)
+    .concat(pr.productPrice)
+    .join(";");
 
-  // const merchantSignature = crypto
-  //   .HmacMD5(objToStr, "flk3409refn54t54t*FNJRET")
-  //   .toString();
-
-  const merchantSignature = crypto.createHmac("md5", "flk3409refn54t54t*FNJRET")
-      .update(objToStr)
-      .digest("hex");
+  const merchantSignature = crypto
+    .createHmac("md5", "flk3409refn54t54t*FNJRET")
+    .update(objToStr)
+    .digest("hex");
 
   wayforpay.run({
     ...obj,
+    ...pr,
     straightWidget: true,
     partnerCode: ["test_merch_n1", "ottry"],
-    partnerPrice: [productPrice * 0.95, productPrice * 0.05],
+    partnerPrice: [sum * 0.95, sum * 0.05],
     authorizationType: "SimpleSignature",
     defaultPaymentSystem: "card",
     merchantSignature,

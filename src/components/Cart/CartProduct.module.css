@@ -7,6 +7,7 @@
   margin-left: 10px;
   display: flex;
   flex-direction: column;
+  width: 72%;
 }
 .productName {
   width: 50vw;
@@ -19,29 +20,36 @@
   height: 30vw;
   border-radius: 5px;
 }
+@media all and (min-width: 600px) {
+  .productImg {
+    width: 15vw;
+    height: 15vw;
+  }
+  .closePanelButton {
+    cursor: pointer;
+  }
+}
 .productCount {
   margin-top: auto;
   display: flex;
   justify-content: space-between;
-    align-items: center;
-    width: 20vw;
-    /*font-size: 1em;*/
+  align-items: center;
+  width: 20vw;
+
 }
 
 .countButton {
-border-radius: 50%;
-border: none;
-    background: lightblue;
-    font-size: 1.5em;
-width: 25px
+  border-radius: 50%;
+  border: none;
+  background: lightblue;
+  font-size: 1.5em;
+  width: 25px;
 }
 
-.minus{
-    /*position: absolute;*/
-    font-weight:500;
-    transform: scaleX(1.3) translateY(-1px);
-    /*line-height:1.1em;*/
-    opacity: 0.8;
+.minus {
+  font-weight: 500;
+  transform: scaleX(1.3) translateY(-1px);
+  opacity: 0.8;
 }
 .closePanelButton {
   margin-left: auto;

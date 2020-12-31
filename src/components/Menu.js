@@ -12,9 +12,17 @@ import {
   SearchIconFull,
 } from "./Tools/Icons";
 import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
+let isCartNeed = false;
 const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount }) => {
-  const { pathname } = useLocation();
+    const { pathname } = useLocation();
+    const [, setState] = useState(false);
+    useEffect(()=>{
+        if(cartCount){
+            isCartNeed=true;
+            setState(true)
+        }},[cartCount]);
   return (
     <div className={classes.menu}>
       <Link to="/home">
@@ -40,18 +48,21 @@ const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount }) => {
           />
         )}
       </Link>
-      {/*<a*/}
-      {/*  target="_blank"*/}
-      {/*  rel="noopener noreferrer"*/}
-      {/*  href="https://docs.google.com/forms/d/e/1FAIpQLSdn2MwSLuLq3URztfZMojmlcG0fOigl_OebfWoOAbk5K32IPw/viewform?usp=sf_link"*/}
-      {/*>*/}
-      {/*  <AddIcon />*/}
-      {/*</a>*/}
-      <Link to="/cart">
-        <div badge={cartCount}>
-          {pathname === "/cart" ? <CartIconFull /> : <CartIcon />}
-        </div>
-      </Link>
+      {isCartNeed ? (
+        <Link to="/cart">
+          <div badge={cartCount}>
+            {pathname === "/cart" ? <CartIconFull /> : <CartIcon />}
+          </div>
+        </Link>
+      ) : (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdn2MwSLuLq3URztfZMojmlcG0fOigl_OebfWoOAbk5K32IPw/viewform?usp=sf_link"
+        >
+          <AddIcon />
+        </a>
+      )}
       <Link to="/like">
         <div badge={countLike}>
           {pathname === "/like" ? (

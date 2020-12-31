@@ -1,7 +1,7 @@
 .img {
     cursor: none;
 }
-@media (min-width:  var(--max-screen-widt)) {
+@media (min-width:  600px) {
   .img {
   cursor: pointer;
   }

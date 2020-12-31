@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import classes from "./Carousel.module.css";
-import {useEffect} from "react";
+import { useEffect } from "react";
+
 const Carousel = ({ imgs = [] }) => {
-  useEffect(()=>setViewImg(0), [imgs]);
   const [viewImg, setViewImg] = useState(0);
   const [start, setStart] = useState(0);
+  useEffect(() => setViewImg(0), [imgs]);
+
   const next = () => {
     if (viewImg === imgs.length - 1) {
       setViewImg(0);
@@ -21,7 +23,9 @@ const Carousel = ({ imgs = [] }) => {
     if (swipeLength < -50) prev();
     if (swipeLength > 50) next();
   };
-  const touchStartHandler = (eve) => {setStart(eve.touches[0].clientX)};
+  const touchStartHandler = (eve) => {
+    setStart(eve.touches[0].clientX);
+  };
 
   const imgsMap = imgs.map((img, i) => (
     <img
@@ -29,7 +33,7 @@ const Carousel = ({ imgs = [] }) => {
       onTouchEnd={touchEndHandler}
       alt="Carousel"
       src={img}
-      className={`${ classes.img} ${i === viewImg ? classes.selectImg : ""}`}
+      className={`${classes.img} ${i === viewImg ? classes.selectImg : ""}`}
       onClick={next}
       key={i}
     />
@@ -38,7 +42,7 @@ const Carousel = ({ imgs = [] }) => {
   for (let i = 0; i < imgs.length; i++)
     gabsMap.push(
       <span
-          key={i}
+        key={i}
         onClick={() => setViewImg(i)}
         className={`${classes.dote} ${viewImg === i && classes.select}`}
       >

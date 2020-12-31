@@ -1,28 +1,20 @@
 import React from "react";
 import classes from "./Card.module.css";
-import { LikeIcon, LikeIconFull } from "../Tools/Icons";
 import { Link } from "react-router-dom";
+import ButtonPanel from "../Tools/ButtonPanel";
 
-const Card = ({
-  product,
-
-  removeLike,
-  addLike,
-  isLiked,
-  seeAllCards,
-}) => {
+const Card = ({ product, seeAllCards, ...buttonPanel }) => {
   const { name, price, img, id } = product;
-  const liked = isLiked(id);
+  const clickHandler = () => {
+    seeAllCards();
+    window.scrollTo(0, 0);
+  };
   return (
     <div className={classes.card}>
       <Link to={`/product/${id}`}>
         <img
           className={classes.cardImage}
-          onClick={() => {
-            seeAllCards();
-
-            window.scrollTo(0, 0);
-          }}
+          onClick={clickHandler}
           alt="cardImage"
           src={img[0]}
         />
@@ -32,13 +24,7 @@ const Card = ({
           <div className={classes.cardName}>{name}</div>
           <div className={classes.cardPrice}> {price} грн</div>
         </div>
-        <div className={classes.cardLike}>
-          {liked ? (
-            <LikeIconFull onClick={() => removeLike(id)} />
-          ) : (
-            <LikeIcon onClick={() => addLike(id)} />
-          )}
-        </div>
+        <ButtonPanel {...{ ...buttonPanel, product }} />
       </div>
     </div>
   );

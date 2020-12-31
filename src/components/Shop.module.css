@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  height: 100%;
+
 }
 .shop.reverse {
   flex-direction: column-reverse;
 }
 
-@media (min-width: var(--max-screen-widt)) {
+@media (min-width: 600px) {
   .shop {
     padding: 0 20vw 0 20vw;
   }

@@ -28,11 +28,12 @@ code {
   min-width: 16px;
   height: 16px;
   letter-spacing: 0;
-  border: white 3px solid;
+  border: white 2px solid;
   position: absolute;
   text-align: center;
   line-height:1.4em;
-  padding-left:1px
+  padding-left:1px;
+  pointer-events: none;
 }
 
 

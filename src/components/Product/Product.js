@@ -9,24 +9,21 @@ import AnotherText from "./AnotherText";
 import { useParams } from "react-router-dom";
 import { productsList } from "../../Utilits/productsList";
 
-const Product = ({ addLike, removeLike,  isLiked, addToCart }) => {
+const Product = (props) => {
   const params = useParams();
   const product = productsList.find(({ id }) => +params.id === id);
   if (!product) return <></>;
 
-  const { id, name, price, description, img } = product;
-  const liked = isLiked(id);
+  const {  name, price, description, img } = product;
+
   return (
     <>
       <div className={classes.panel}>
         <Carousel className={classes.carousel} imgs={img} />
         <div className={classes.container}>
           <Panel
-            addLike={() => addLike(id)}
-            removeLike={() => removeLike(id)}
-            addToCart={() => addToCart(product)}
             oldPrice={500.0}
-            {...{ liked, name, price }}
+            {...{ ...props,  name, price , product}}
           />
           <button
             className={classes.buyButton}

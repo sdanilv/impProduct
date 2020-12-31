@@ -15,9 +15,13 @@
 .panelButtonContainer {
     display: flex;
     /*flex-direction: column;*/
-    justify-content: space-between;
-    width: 15%;
+    justify-content: flex-end;
+    width: 18vw
 }
+@media all and (min-width: 600px){
+  .panelButtonContainer{width: 8vw}
+}
+.cart{margin-right: 16px}
 
 .price {
     display: flex;

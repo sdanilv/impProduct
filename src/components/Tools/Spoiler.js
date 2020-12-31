@@ -7,9 +7,9 @@ const Spoiler = ({ name, value }) => {
   return (
     <div className={classes.collapse}>
       <button
-        className={`${classes.collapsible} ${expand && classes.active}`}
+        className={`${classes.collapsible} ${!expand && classes.active}`}
         onClick={expandHandler}
-      >
+      ><div className={`${classes.minus} ${!expand && classes.hide}`}>-</div>
        {name}
       </button>
       <div className={`${classes.content} ${expand && classes.expandContent}`}>
