@@ -7,9 +7,9 @@ import LinkToShop from "./LinkToShop";
 import Carousel from "../Tools/Carousel";
 import AnotherText from "./AnotherText";
 import { useParams } from "react-router-dom";
-import { productsList } from "../../Utilits/productsList";
+// import { productsList } from "../../Utilits/productsList";
 
-const Product = (props) => {
+const Product = ({productsList, ...props}) => {
   const params = useParams();
   const product = productsList.find(({ id }) => +params.id === id);
   if (!product) return <></>;

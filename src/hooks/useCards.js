@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { productsList } from "../Utilits/productsList";
 import { useEffect } from "react";
-export const useCards = (likedCards) => {
-
+export const useCards = (likedCards, productsList) => {
   const [cards, setCards] = useState(productsList);
+  useState(() => {
+
+    setCards(productsList);
+  }, [productsList]);
   const seeLikedCards = () => setCards(likedCards);
   const seeAllCards = () => setCards(productsList);
   useEffect(() => {

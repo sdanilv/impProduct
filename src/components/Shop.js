@@ -11,12 +11,14 @@ import { useLikes } from "../hooks/useLikes";
 import { useCards } from "../hooks/useCards";
 import Cart from "./Cart/Cart";
 import { useCart } from "../hooks/useCart";
-import {useMemo} from "react";
+import { useMemo } from "react";
 
-const Shop = () => {
-  const { likedCards, countLike, ...likes } = useLikes();
+const Shop = ({productsList}) => {
+
+  const { likedCards, countLike, ...likes } = useLikes(productsList);
   const { seeLikedCards, seeAllCards, seeSearchedCards, cards } = useCards(
-    likedCards
+    likedCards,
+    productsList
   );
   const {
     addToCart,
@@ -26,9 +28,11 @@ const Shop = () => {
     ...cart
   } = useCart();
   const isMobile = window.screen.availWidth < 600;
-  const MenuWithData =()=> useMemo ( () => (
-    <Menu {...{ seeLikedCards, seeAllCards, countLike, cartCount }} />
-  ),[]);
+  const MenuWithData = () =>
+    useMemo(
+      () => <Menu {...{ seeLikedCards, seeAllCards, countLike, cartCount }} />,
+      []
+    );
 
   return (
     <BrowserRouter>
@@ -44,7 +48,9 @@ const Shop = () => {
           <Profile />
         </Route>
         <Route path="/product/:id">
-          <Product {...{ ...likes, addToCart, getCartProductCount }} />
+          <Product
+            {...{ ...likes, addToCart, getCartProductCount, productsList }}
+          />
         </Route>
         <Cards
           {...{ ...likes, seeAllCards, addToCart, cards, getCartProductCount }}

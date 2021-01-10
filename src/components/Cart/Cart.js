@@ -10,15 +10,17 @@ const Cart = ({ cart }) => {
   const productName = [];
   const productPrice = [];
   const productCount = [];
+  const productsId = [];
   const productsMap = products.map((product) => {
     productName.push(product.name);
     productPrice.push(product.price);
     productCount.push(product.count);
+    productsId.push(product.id);
     return <CartProduct key={product.id} {...product} {...cartEvent} />;
   });
 
   const buyButtonHandler = () => {
-    pay(productName, productPrice, productCount, sum);
+    pay(productName, productPrice, productCount, productsId, sum);
   };
 
   return (

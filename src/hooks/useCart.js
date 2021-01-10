@@ -27,10 +27,11 @@ let savedCart =  JSON.parse(localStorage.getItem("cart" )) || init;
               }
               return product;
             }),
-            sum: state.sum + price,
+            sum: +state.sum + Number.parseFloat(price),
             count: state.count + 1,
           };
         }
+
         case "minusCount": {
           let price = 0;
           let count = 0;
@@ -44,7 +45,7 @@ let savedCart =  JSON.parse(localStorage.getItem("cart" )) || init;
               }
               return product;
             }),
-            sum: state.sum - price,
+            sum: +state.sum - price,
             count: state.count - count,
           };
         }
@@ -52,7 +53,7 @@ let savedCart =  JSON.parse(localStorage.getItem("cart" )) || init;
           return {
             ...state,
             products: [...state.products, { ...payload, count: 1 }],
-            sum: state.sum + payload.price,
+            sum: +state.sum + Number.parseFloat(payload.price),
             count: state.count + 1,
           };
         case "removeProduct": {
@@ -68,7 +69,7 @@ let savedCart =  JSON.parse(localStorage.getItem("cart" )) || init;
               }
               return true;
             }),
-            sum: state.sum - count * price,
+            sum: +state.sum - count * +price,
             count: state.count - count,
           };
         }
@@ -82,6 +83,7 @@ let savedCart =  JSON.parse(localStorage.getItem("cart" )) || init;
     },
       savedCart
   );
+
   const { products, sum, count, popup }  = state;
   const dispatched = (type, payload) => dispatch({ type, payload });
   const addPopup = (name, img) => {

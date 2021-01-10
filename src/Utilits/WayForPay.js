@@ -1,37 +1,28 @@
 /* eslint-disable */
-import crypto from "crypto";
+
+import {generateSalt} from "../api";
 const wayforpay = new Wayforpay();
-export const invoice = (url) => {
+export const invoice = async (url) => {
   wayforpay.invoice(url, true);
 };
-export const pay = (productName, productPrice, productCount=1, sum=productPrice) => {
+export const pay = async (productName, productPrice, productCount=[1], productsId, sum=productPrice) => {
+  const date = new Date().valueOf();
   const obj = {
     merchantAccount: "test_merch_n1",
     merchantDomainName: "www.market.ua",
-    orderReference: "D" + new Date().valueOf(),
-    orderDate: new Date().valueOf(),
+    orderReference: "D" + date,
+    orderDate: date,
     amount: sum,
     currency: "UAH",
   };
-  const pr = {
-    productName,
-    productCount,
-    productPrice,
-  };
-  const objToStr = Object.values(obj)
-    .concat(pr.productName)
-    .concat(pr.productCount)
-    .concat(pr.productPrice)
-    .join(";");
 
-  const merchantSignature = crypto
-    .createHmac("md5", "flk3409refn54t54t*FNJRET")
-    .update(objToStr)
-    .digest("hex");
+  const {merchantSignature} = await generateSalt({ productsId, productCount, date })
 
   wayforpay.run({
     ...obj,
-    ...pr,
+    productName,
+    productCount,
+    productPrice,
     straightWidget: true,
     partnerCode: ["test_merch_n1", "ottry"],
     partnerPrice: [sum * 0.95, sum * 0.05],

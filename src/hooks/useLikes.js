@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { productsList } from "../Utilits/productsList";
+
 import { useEffect } from "react";
 
-export const useLikes = () => {
+export const useLikes = (productsList) => {
   let savedLikes = localStorage.getItem("likes");
   savedLikes = savedLikes ? savedLikes.split(";").map((i) => +i) : [];
   const [likedProducts, setLikedProducts] = useState([...savedLikes]);
