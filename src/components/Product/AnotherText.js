@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Product.module.css";
+import classes from "./AnotherText.module.css";
 import {Link} from "react-router-dom";
 
 const AnotherText = () => (
