@@ -1,6 +1,6 @@
 
 const fetchData = async (url, method = "GET", data) => {
-const response = await fetch(`http://localhost:3001/shops/5ff9ab4b6aa5fa31a4f23783/${url}`, {
+const response = await fetch(`https://imp-product-server.herokuapp.com/shops/5ff9ab4b6aa5fa31a4f23783/${url}`, {
     method,
     mode: "cors",
     headers: {

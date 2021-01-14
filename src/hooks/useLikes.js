@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export const useLikes = (productsList) => {
   let savedLikes = localStorage.getItem("likes");
-  savedLikes = savedLikes ? savedLikes.split(";").map((i) => +i) : [];
+  savedLikes = savedLikes ? savedLikes.split(";") : [];
   const [likedProducts, setLikedProducts] = useState([...savedLikes]);
 
   useEffect(() => localStorage.setItem("likes", likedProducts.join(";")), [

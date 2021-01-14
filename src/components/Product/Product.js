@@ -10,11 +10,13 @@ import { useParams } from "react-router-dom";
 // import { productsList } from "../../Utilits/productsList";
 
 const Product = ({productsList, ...props}) => {
+
   const params = useParams();
-  const product = productsList.find(({ id }) => +params.id === id);
+
+  const product = productsList.find(({ id }) => params.id === id);
   if (!product) return <></>;
 
-  const {  name, price, description, img } = product;
+  const {  name, price, description, img, id} = product;
 
   return (
     <>
@@ -28,7 +30,7 @@ const Product = ({productsList, ...props}) => {
           <button
             className={classes.buyButton}
             type="primary"
-            onClick={() => pay(name, price)}
+            onClick={() => pay(name, price,[1], [id])}
           >
             Купить
           </button>

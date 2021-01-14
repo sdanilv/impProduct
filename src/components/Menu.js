@@ -15,7 +15,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 let isCartNeed = false;
-const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount }) => {
+const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount, removePopup }) => {
     const { pathname } = useLocation();
     const [, setState] = useState(false);
     useEffect(()=>{
@@ -24,7 +24,7 @@ const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount }) => {
             setState(true)
         }},[cartCount]);
   return (
-    <div className={classes.menu}>
+    <div onClick={()=>removePopup()} className={classes.menu}>
       <Link to="/home">
         {pathname === "/home" || pathname === "/" ? (
           <HomeIconFull />

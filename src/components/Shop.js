@@ -25,12 +25,13 @@ const Shop = ({productsList}) => {
     cartCount,
     cartPopup,
     getCartProductCount,
+    removePopup,
     ...cart
-  } = useCart();
+  } = useCart(productsList);
   const isMobile = window.screen.availWidth < 600;
   const MenuWithData = () =>
     useMemo(
-      () => <Menu {...{ seeLikedCards, seeAllCards, countLike, cartCount }} />,
+      () => <Menu {...{ seeLikedCards, seeAllCards, countLike, cartCount, removePopup }} />,
       []
     );
 
@@ -55,6 +56,7 @@ const Shop = ({productsList}) => {
         <Cards
           {...{ ...likes, seeAllCards, addToCart, cards, getCartProductCount }}
         />
+
         <CartPopup cartPopup={cartPopup} />
         {isMobile && <MenuWithData />}
       </div>

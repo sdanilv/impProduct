@@ -5,7 +5,7 @@
   align-items: center;
   width: calc(100% - 40px);
   min-height: 3em;
-  position: absolute;
+  position: fixed;
   bottom: 9vh;
   left: 0;
   border-radius: 5px;
@@ -26,6 +26,9 @@
 }
 
 .cartPanelLink {
+  border: 1px white solid;
+  border-radius: 5px;
+  padding: 2px;
   text-decoration: none;
   color: white;
 }

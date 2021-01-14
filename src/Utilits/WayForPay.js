@@ -6,6 +6,7 @@ export const invoice = async (url) => {
   wayforpay.invoice(url, true);
 };
 export const pay = async (productName, productPrice, productCount=[1], productsId, sum=productPrice) => {
+
   const date = new Date().valueOf();
   const obj = {
     merchantAccount: "test_merch_n1",
@@ -15,8 +16,10 @@ export const pay = async (productName, productPrice, productCount=[1], productsI
     amount: sum,
     currency: "UAH",
   };
-
-  const {merchantSignature} = await generateSalt({ productsId, productCount, date })
+console.log({...    obj,productName,
+  productCount,
+  productPrice,})
+  const {merchantSignature} = await generateSalt({ productsId,productCount, date })
 
   wayforpay.run({
     ...obj,

@@ -10,7 +10,7 @@ const Cart = ({ cart }) => {
   const productName = [];
   const productPrice = [];
   const productCount = [];
-  const productsId = [];
+  let productsId = [];
   const productsMap = products.map((product) => {
     productName.push(product.name);
     productPrice.push(product.price);
@@ -18,7 +18,6 @@ const Cart = ({ cart }) => {
     productsId.push(product.id);
     return <CartProduct key={product.id} {...product} {...cartEvent} />;
   });
-
   const buyButtonHandler = () => {
     pay(productName, productPrice, productCount, productsId, sum);
   };

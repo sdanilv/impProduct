@@ -12,7 +12,7 @@ const Panel =props => {
     </div>
     <div className={classes.price}>
       <div>{price}&nbsp;грн</div>
-      <div className={classes.throughText}>{price + price * 0.2}&nbsp;грн</div>
+      <div className={classes.throughText}>{+price + price * 0.2}&nbsp;грн</div>
     </div>
   </div>
 )};
