@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAllProducts } from "./api";
 import Shop from "./components/Shop";
+import Loader from "./components/Tools/Loader";
 
 const App = () => {
   const [productsList, setProductsList] = useState([]);
@@ -11,7 +12,7 @@ const App = () => {
     })();
   }, []);
   if (productsList.length) return <Shop productsList={productsList} />;
-  return <></>;
+  return <Loader />;
 };
 
 export default App;
