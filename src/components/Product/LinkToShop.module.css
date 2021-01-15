@@ -1,7 +1,7 @@
 .linkToShop {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
 }
 .shopName {
   line-height: 1em;

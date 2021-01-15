@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./Profile.module.css";
 import Spoiler from "./Tools/Spoiler";
+import classes from "./Profile.module.css";
 
 const Profile = () => (
   <div className={classes.profile}>
@@ -40,7 +40,7 @@ const Profile = () => (
         Мы не несем ответственность за изменения сроков доставки со стороны перевозчика.`}
       />
       <Spoiler
-        name="Связвться с продавцом"
+        name="Связаться с продавцом"
         value={`Для максимально быстрого старта продаж свяжитесь с нами по телефону 
         +38 093 706 9897 (Telegram/Viber).`}
       />

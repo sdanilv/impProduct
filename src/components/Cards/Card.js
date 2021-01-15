@@ -7,7 +7,7 @@ const Card = ({ product, seeAllCards, ...buttonPanel }) => {
   const { name, price, img, id } = product;
   const clickHandler = () => {
     seeAllCards();
-    window.scrollTo(0, 0);
+
   };
   return (
     <div className={classes.card}>

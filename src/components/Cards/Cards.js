@@ -23,7 +23,7 @@ const Cards = ({ cards, ...props }) => {
   }
 
   return (
-    <div className={classes.cardsContainer}>
+    <div id="start-of-content" className={classes.cardsContainer}>
       {productRows.length ? productRows : <Empty />}
     </div>
   );

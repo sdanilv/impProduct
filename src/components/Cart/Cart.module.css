@@ -5,7 +5,7 @@
 }
 .productsTable{  }
 .cartLink {
-  margin: 16px;
+  margin: 16px 16px 0;
 }
 .totalCount {
   font-weight: bold;
@@ -16,15 +16,7 @@
   justify-content: space-between;
 }
 .buyButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 8vh;
-  background: #216fdb;
-  margin: 16px;
-  border-radius: 5px;
-  text-align: center;
-  color: white;
+  margin: 10px;
 }
 .buyButton:hover {
   cursor: pointer;

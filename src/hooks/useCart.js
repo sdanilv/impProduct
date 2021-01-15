@@ -96,7 +96,6 @@ export const useCart = (productsList) => {
   const dispatched = (type, payload) => dispatch({ type, payload });
   const removePopup = () => dispatched("removePopup");
   const addPopup = (name, img) => {
-    console.log(popup.timerId)
     clearTimeout(popup.timerId)
     dispatched("addPopup", { name, img });
    const timerId =  setTimeout(() => dispatched("removePopup"), 3000);

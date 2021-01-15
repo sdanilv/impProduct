@@ -39,9 +39,10 @@
 }
 
 .countButton {
+  color: white;
   border-radius: 50%;
   border: none;
-  background: lightblue;
+  background:  #0095f6;
   font-size: 1.5em;
   width: 25px;
 }

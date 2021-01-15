@@ -58,8 +58,9 @@
     Arial, sans-serif;
   position: relative;
   z-index: 0;
-  color: rgb(153, 153, 153);
+  color: #407189;
   font-size: 12px;
+  /*font-weight: bold;*/
   line-height: 1.3;
 }
 .cardNameContainer {

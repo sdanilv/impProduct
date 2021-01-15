@@ -1,20 +1,21 @@
 import React from "react";
-import Cards from "./Cards/Cards";
-import Product from "./Product/Product";
-import classes from "./Shop.module.css";
+import { useMemo } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Menu from "./Menu";
-import SearchInput from "./Tools/SearchInput";
 import Profile from "./Profile";
+import Cards from "./Cards/Cards";
+import Product from "./Product/Product";
+import Cart from "./Cart/Cart";
 import CartPopup from "./Cart/CartPopup";
+import SearchInput from "./Tools/SearchInput";
 import { useLikes } from "../hooks/useLikes";
 import { useCards } from "../hooks/useCards";
-import Cart from "./Cart/Cart";
 import { useCart } from "../hooks/useCart";
-import { useMemo } from "react";
+import classes from "./Shop.module.css";
 
-const Shop = ({productsList}) => {
 
+
+const Shop = ({ productsList }) => {
   const { likedCards, countLike, ...likes } = useLikes(productsList);
   const { seeLikedCards, seeAllCards, seeSearchedCards, cards } = useCards(
     likedCards,
@@ -31,7 +32,11 @@ const Shop = ({productsList}) => {
   const isMobile = window.screen.availWidth < 600;
   const MenuWithData = () =>
     useMemo(
-      () => <Menu {...{ seeLikedCards, seeAllCards, countLike, cartCount, removePopup }} />,
+      () => (
+        <Menu
+          {...{ seeLikedCards, seeAllCards, countLike, cartCount, removePopup }}
+        />
+      ),
       []
     );
 
@@ -46,7 +51,9 @@ const Shop = ({productsList}) => {
           <Cart {...{ cart }} />
         </Route>
         <Route path="/profile">
-          <Profile />
+
+            <Profile />
+
         </Route>
         <Route path="/product/:id">
           <Product

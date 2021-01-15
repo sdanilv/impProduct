@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./CartProduct.module.css";
 import {Link} from "react-router-dom";
+import {CrossImage} from "../Tools/Icons";
 
 const CartProduct = ({ id, img, name, price, count, plusProductCount ,minusProductCount, removeProduct }) => {
     const plusHandler = () => plusProductCount(id);
@@ -23,7 +24,7 @@ const CartProduct = ({ id, img, name, price, count, plusProductCount ,minusProdu
           <button onClick={plusHandler} className={`${classes.countButton}`}>+</button>
         </div>
       </div>
-      <div onClick={crossHandler} className={classes.closePanelButton}>x</div>
+      <div onClick={crossHandler} className={classes.closePanelButton}><CrossImage /></div>
     </div>
   );
 };
