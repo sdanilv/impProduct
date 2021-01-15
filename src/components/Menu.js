@@ -25,8 +25,9 @@ const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount, removePopup })
         }},[cartCount]);
   return (
     <div onClick={()=>removePopup()} className={classes.menu}>
-      <Link to="/home">
-        {pathname === "/home" || pathname === "/" ? (
+        <a className={classes.skipLink}  href="#start-of-content" >Перейти к основному контенту </a>
+      <Link to="/">
+        { pathname === "/" ? (
           <HomeIconFull />
         ) : (
           <HomeIcon
@@ -49,7 +50,7 @@ const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount, removePopup })
         )}
       </Link>
       {isCartNeed ? (
-        <Link to="/cart">
+        <Link to="/cart" >
           <div badge={cartCount}>
             {pathname === "/cart" ? <CartIconFull /> : <CartIcon />}
           </div>
