@@ -3,6 +3,7 @@ import classes from "./Cart.module.css";
 import CartProduct from "./CartProduct";
 import LinkToShop from "../Product/LinkToShop";
 import { pay } from "../../Utilits/WayForPay";
+import BuyButton from "../Tools/BuyButton";
 
 const Cart = ({ cart }) => {
   const { sum, products, ...cartEvent } = cart;
@@ -32,12 +33,10 @@ const Cart = ({ cart }) => {
         <div>Всего:</div>
         <div>{sum}грн</div>
       </div>
-      <div
-        onClick={buyButtonHandler}
-        className={`${classes.buyButton} ${!sum && classes.notActive}`}
-      >
-        Купить
-      </div>
+<div className={classes.buyButton}>
+    <BuyButton onClick={buyButtonHandler} disabled={!sum} />
+</div>
+
     </div>
   );
 };

@@ -1,0 +1,46 @@
+.buyButton {
+  height: 50px;
+
+  width: 100%;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+
+  position: relative;
+  display: inline-block;
+
+  white-space: nowrap;
+  text-align: center;
+  background: #0095f6;
+
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  cursor: pointer;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  box-sizing: border-box;
+  padding: 4px 15px;
+  text-transform: none;
+
+  margin: 0;
+  border-radius: 3px;
+  border: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 26px;
+  outline: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buyButton[disabled] {
+  background: grey;
+  pointer-events: none;
+}
