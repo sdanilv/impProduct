@@ -20,7 +20,7 @@
   padding: 5px;
 }
 .select {
-  color: #0095f6;
+  color: var(--primary-color)
 }
 .img {
   /*width: 25vw;*/

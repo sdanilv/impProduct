@@ -13,8 +13,6 @@ import { useCards } from "../hooks/useCards";
 import { useCart } from "../hooks/useCart";
 import classes from "./Shop.module.css";
 
-
-
 const Shop = ({ productsList }) => {
   const { likedCards, countLike, ...likes } = useLikes(productsList);
   const { seeLikedCards, seeAllCards, seeSearchedCards, cards } = useCards(
@@ -29,7 +27,6 @@ const Shop = ({ productsList }) => {
     removePopup,
     ...cart
   } = useCart(productsList);
-  const isMobile = window.screen.availWidth < 600;
   const MenuWithData = () =>
     useMemo(
       () => (
@@ -42,30 +39,36 @@ const Shop = ({ productsList }) => {
 
   return (
     <BrowserRouter>
-      <div className={`${classes.shop}  `}>
-        {!isMobile && <MenuWithData />}
-        <Route path="/search">
-          <SearchInput onChange={seeSearchedCards} />
-        </Route>
-        <Route path="/cart">
-          <Cart {...{ cart }} />
-        </Route>
-        <Route path="/profile">
-
+      <div className={classes.shop}>
+        <MenuWithData />
+        <div className={classes.container}>
+          <Route path="/search">
+            <SearchInput onChange={seeSearchedCards} />
+          </Route>
+          <Route path="/cart">
+            <Cart {...{ cart }} />
+          </Route>
+          <Route path="/profile">
             <Profile />
-
-        </Route>
-        <Route path="/product/:id">
-          <Product
-            {...{ ...likes, addToCart, getCartProductCount, productsList }}
-          />
-        </Route>
-        <Cards
-          {...{ ...likes, seeAllCards, addToCart, cards, getCartProductCount }}
-        />
-
-        <CartPopup cartPopup={cartPopup} />
-        {isMobile && <MenuWithData />}
+          </Route>
+          <Route path="/product/:id">
+            <Product
+              {...{ ...likes, addToCart, getCartProductCount, productsList }}
+            />
+          </Route>
+          <Route exact path={["/", "/like", "/search", "/product/:id"]}>
+            <Cards
+              {...{
+                ...likes,
+                seeAllCards,
+                addToCart,
+                cards,
+                getCartProductCount,
+              }}
+            />
+          </Route>
+          <CartPopup cartPopup={cartPopup} />
+        </div>
       </div>
     </BrowserRouter>
   );

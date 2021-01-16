@@ -1,12 +1,7 @@
-:root {
-  --profile-ava-size: 180px;
-}
-
 .profile {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(90vh - 20px );
-  margin: 16px;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+/*height: 80vh;*/
 
 }
 .ava {
@@ -34,5 +29,15 @@
   width: 100%;
   text-align: center;
 }
+.themeToggle {
+  border-radius: 5px;
+  background: var(--background-color);
+  color: var(--text-color);
+  border-color: var(--text-color);
+  outline: none;
+}
+.container {
+  margin:16px 16px 20px;
+  min-height: 75vh;
 
-.container{ margin-bottom:20px }
+}

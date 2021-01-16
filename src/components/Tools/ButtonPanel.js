@@ -24,11 +24,13 @@ const ButtonPanel = ({
           <CartIcon onClick={() => addToCart(product)} />
         )}
       </div>
-      {isLiked(id) ? (
-        <LikeIconFull onClick={() => removeLike(id)} />
-      ) : (
-        <LikeIcon onClick={() => addLike(id)} />
-      )}
+      <div>
+        {isLiked(id) ? (
+          <LikeIconFull onClick={() => removeLike(id)} />
+        ) : (
+          <LikeIcon onClick={() => addLike(id)} />
+        )}
+      </div>
     </div>
   );
 };

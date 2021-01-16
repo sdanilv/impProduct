@@ -15,7 +15,7 @@ const LinkToShop = () => (
     </div>
     <div className={classes.descript}>
       <div className={classes.shopName}>
-        В магазин <Link to="/home">"EasyShop"</Link>
+        В магазин <Link to="/">"EasyShop"</Link>
       </div>
       <div className={classes.city}>Киев</div>
     </div>

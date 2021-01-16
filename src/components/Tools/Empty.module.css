@@ -1,0 +1,13 @@
+.empty{
+margin-top: 30vh;
+align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.emptyText{
+
+    color: var(--text-color);
+    width: 80%;
+    text-align: center;
+}

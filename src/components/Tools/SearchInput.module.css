@@ -1,15 +1,16 @@
 .search {
   display: flex;
   height: 3em;
-align-items: center;
-  padding-left:3px;
+  align-items: center;
+  padding-left: 3px;
   margin: 16px;
   border-radius: 5px;
-  border: 1px #0095f6 solid;
-
+  border: 1px var(--primary-color) solid;
 }
 
 .searchInput {
+  background: var(--input-color);
+  color: var(--text-color);
   font-size: 1.2em;
   height: 2em;
   border: none;
@@ -26,7 +27,7 @@ align-items: center;
   width: 10px;
 }
 .searchButton {
-  background: white;
+  background: var(--background-color);
   border: none;
   margin-right: 10px;
   outline: none;

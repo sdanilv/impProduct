@@ -1,5 +1,7 @@
 .img {
     cursor: none;
+
+    fill: var(--text-color);
 }
 @media (min-width:  600px) {
   .img {

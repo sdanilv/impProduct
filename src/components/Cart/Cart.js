@@ -4,6 +4,7 @@ import CartProduct from "./CartProduct";
 import LinkToShop from "../Product/LinkToShop";
 import { pay } from "../../Utilits/WayForPay";
 import BuyButton from "../Tools/BuyButton";
+import Empty from "../Tools/Empty";
 
 const Cart = ({ cart }) => {
   const { sum, products, ...cartEvent } = cart;
@@ -28,15 +29,16 @@ const Cart = ({ cart }) => {
       <div className={classes.cartLink}>
         <LinkToShop />
       </div>
-      <div className={classes.productsTable}>{productsMap}</div>
+      <div className={classes.productsTable}>
+        {productsMap.length ? productsMap : <Empty text="Ваша козина пуста" />}
+      </div>
       <div className={classes.totalCount}>
         <div>Всего:</div>
         <div>{sum}грн</div>
       </div>
-<div className={classes.buyButton}>
-    <BuyButton onClick={buyButtonHandler} disabled={!sum} />
-</div>
-
+      <div className={classes.buyButton}>
+        <BuyButton onClick={buyButtonHandler} disabled={!sum} />
+      </div>
     </div>
   );
 };

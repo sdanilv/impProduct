@@ -14,6 +14,9 @@
   font-weight: bold;
   overflow: hidden;
 }
+.productPrice{
+  color: var(--price-color);
+}
 
 .productImg {
   width: 30vw;
@@ -42,7 +45,7 @@
   color: white;
   border-radius: 50%;
   border: none;
-  background:  #0095f6;
+  background: var(--primary-color);
   font-size: 1.5em;
   width: 25px;
 }

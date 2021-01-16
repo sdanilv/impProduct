@@ -6,9 +6,9 @@ const AnotherText = () => (
   <div className={classes.anotherTextContainer}>
     <span className={classes.anotherText}> Еще из данного магазина</span>
     <span
-      className={classes.anotherTextContainerAll}
+
     >
-        <Link to="\home">
+        <Link to="\home"  className={classes.anotherTextContainerAll}>
       Все
         </Link>
     </span>

@@ -1,5 +1,5 @@
 .cart {
-  min-height: calc(91vh + 4px  );
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
 }

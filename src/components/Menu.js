@@ -1,18 +1,18 @@
 import React from "react";
-import classes from "./Menu.module.css";
-import {
-  AddIcon,
-  CartIcon,
-  CartIconFull,
-  HomeIcon,
-  HomeIconFull,
-  LikeIcon,
-  LikeIconFull,
-  SearchIcon,
-  SearchIconFull,
-} from "./Tools/Icons";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import {
+    AddIcon,
+    CartIcon,
+    CartIconFull,
+    HomeIcon,
+    HomeIconFull,
+    LikeIcon,
+    LikeIconFull,
+    SearchIcon,
+    SearchIconFull,
+} from "./Tools/Icons";
+import classes from "./Menu.module.css";
 
 let isCartNeed = false;
 const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount, removePopup }) => {

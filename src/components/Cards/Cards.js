@@ -1,13 +1,16 @@
 import React from "react";
 import classes from "./Cards.module.css";
 import Card from "./Card";
-import Empty from "./Empty";
+import Empty from "../Tools/Empty";
 import { useLocation } from "react-router-dom";
 
 const Cards = ({ cards, ...props }) => {
   const { pathname } = useLocation();
+  const textIfEmpty =
+    pathname === "/like"
+      ? `Ваш список желаний пуст! Наполните его товарами нажав на сердечко.`
+      : `По Вашему запросу ничего не найдено. Попробуйте изменить запрос.`;
 
-  if (pathname === "/profile" || pathname === "/cart") return <></>;
   const productsMap = cards.map((product) => (
     <Card key={product.id} {...props} product={product} />
   ));
@@ -24,7 +27,7 @@ const Cards = ({ cards, ...props }) => {
 
   return (
     <div id="start-of-content" className={classes.cardsContainer}>
-      {productRows.length ? productRows : <Empty />}
+      {productRows.length ? productRows : <Empty text={textIfEmpty} />}
     </div>
   );
 };

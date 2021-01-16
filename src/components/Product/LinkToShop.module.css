@@ -13,7 +13,7 @@
 
 .shopName a {
   text-decoration: none;
-  color: #0095f6;
+  color: var(--primary-color)
 }
 .ava {
   width: 40px;

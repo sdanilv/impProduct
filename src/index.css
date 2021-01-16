@@ -1,4 +1,6 @@
 body {
+  background: var(--background-color);
+  color: var(--text-color);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
@@ -28,14 +30,13 @@ code {
   min-width: 16px;
   height: 16px;
   letter-spacing: 0;
-  border: white 2px solid;
+  border: var(--background-color) 2px solid;
   position: absolute;
   text-align: center;
-  line-height:1.4em;
-  padding-left:1px;
+  line-height: 1.4em;
+  padding-left: 1px;
   pointer-events: none;
 }
-
 
 [badge^="-"]:after,
 [badge="0"]:after,
@@ -43,6 +44,22 @@ code {
   display: none;
 }
 
-:root{
-  --max-screen-widt: 900px
+:root {
+  --text-color:#262626;
+  --background-color: white;
+  --menu-color: white;
+
+  --price-color:#407189;
+  --primary-color: #0095f6;
+  --max-screen-widt: 900px;
+  --img-size: 24px;
+  --profile-ava-size: 180px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: white;
+    --background-color: #262626;
+    --input-color:  #262626;
+  }
 }
