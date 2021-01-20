@@ -1,39 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Spoiler from "./Tools/Spoiler";
 import classes from "./Profile.module.css";
 
-const Profile = () => {
-  const [darkTheme, setDarkTheme] = useState(false);
-  useEffect(() => {
-    const isDarkTheme = localStorage.getItem("darkTheme");
-    if (isDarkTheme === null) {
-      const color = document.documentElement.style.getPropertyValue(
-        "--background-color"
-      );
-      if (color === "#262626") setDarkTheme(true);
-      return;
-    }
-    setDarkTheme(JSON.parse(isDarkTheme));
-  }, []);
-  const themeToggleHandler = () => {
-    setDarkTheme(!darkTheme);
-  };
-  useEffect(() => {
-    if (darkTheme) {
-      document.documentElement.style.setProperty("--text-color", "white");
-      document.documentElement.style.setProperty(
-        "--background-color",
-        "#262626"
-      );
-      document.documentElement.style.setProperty("--input-color", "#262626");
-    } else {
-      document.documentElement.style.setProperty("--text-color", "#262626");
-      document.documentElement.style.setProperty("--background-color", "white");
-      document.documentElement.style.setProperty("--input-color", "white");
-    }
-    localStorage.setItem("darkTheme", JSON.stringify(darkTheme));
-    console.log(darkTheme)
-  }, [darkTheme]);
+const Profile = ({ darkTheme, themeToggleHandler }) => {
   return (
     <div className={classes.profile}>
       <div className={classes.container}>
@@ -76,13 +45,21 @@ const Profile = () => {
           value={`Для максимально быстрого старта продаж свяжитесь с нами по телефону 
         +38 093 706 9897 (Telegram/Viber).`}
         />
-        <button className={classes.themeToggle} onClick={themeToggleHandler}>
-          {darkTheme ? "Светлая тема" : "Темная тема"}
-        </button>
+        <Spoiler
+          name="Настройки"
+          value={
+            <button
+              className={classes.themeToggle}
+              onClick={themeToggleHandler}
+            >
+              {darkTheme ? "Светлая тема" : "Темная тема"}
+            </button>
+          }
+        />
       </div>
       <div className={classes.copyright}>
         Правила. Условия. Конфиденциальность.
-        <br /> © 2021 EasyShop v.1.0.8
+        <br /> © 2021 EasyShop v.1.1.0
       </div>
     </div>
   );

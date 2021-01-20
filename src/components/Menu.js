@@ -1,56 +1,47 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
-    AddIcon,
-    CartIcon,
-    CartIconFull,
-    HomeIcon,
-    HomeIconFull,
-    LikeIcon,
-    LikeIconFull,
-    SearchIcon,
-    SearchIconFull,
+  AddIcon,
+  CartIcon,
+  CartIconFull,
+  HomeIcon,
+  HomeIconFull,
+  LikeIcon,
+  LikeIconFull,
+  SearchIcon,
+  SearchIconFull,
 } from "./Tools/Icons";
 import classes from "./Menu.module.css";
 
-let isCartNeed = false;
-const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount, removePopup }) => {
-    const { pathname } = useLocation();
-    const [, setState] = useState(false);
-    useEffect(()=>{
-        if(cartCount){
-            isCartNeed=true;
-            setState(true)
-        }},[cartCount]);
+
+const Menu = ({ countLike, cartCount, removePopup }) => {
+const isAddedToCart = useRef(false)
+  const { pathname } = useLocation();
+  const [, setState] = useState(null);
+  useEffect(() => {
+    if (cartCount) {
+      isAddedToCart.current = true;
+      setState(true);
+    }
+  }, [cartCount]);
   return (
-    <div onClick={()=>removePopup()} className={classes.menu}>
-        <a className={classes.skipLink}  href="#start-of-content" >Перейти к основному контенту </a>
-      <Link to="/">
-        { pathname === "/" ? (
-          <HomeIconFull />
-        ) : (
-          <HomeIcon
-            onClick={() => {
-              seeAllCards();
-            }}
-          />
-        )}
-      </Link>
+    <div
+      onClick={() => {
+        removePopup();
+        window.scrollTo(0, 0);
+      }}
+      className={classes.menu}
+    >
+      <a className={classes.skipLink} href="#start-of-content">
+        Перейти к основному контенту
+      </a>
+      <Link to="/">{pathname === "/" ? <HomeIconFull /> : <HomeIcon />}</Link>
       <Link to="/search">
-        {pathname === "/search" ? (
-          <SearchIconFull />
-        ) : (
-          <SearchIcon
-            onClick={() => {
-              window.scrollTo(0, 0);
-              seeAllCards();
-            }}
-          />
-        )}
+        {pathname === "/search" ? <SearchIconFull /> : <SearchIcon />}
       </Link>
-      {isCartNeed ? (
-        <Link to="/cart" >
+      {isAddedToCart.current ? (
+        <Link to="/cart">
           <div badge={cartCount}>
             {pathname === "/cart" ? <CartIconFull /> : <CartIcon />}
           </div>
@@ -66,15 +57,7 @@ const Menu = ({ countLike, seeLikedCards, seeAllCards, cartCount, removePopup })
       )}
       <Link to="/like">
         <div badge={countLike}>
-          {pathname === "/like" ? (
-            <LikeIconFull />
-          ) : (
-            <LikeIcon
-              onClick={() => {
-                seeLikedCards();
-              }}
-            />
-          )}
+          {pathname === "/like" ? <LikeIconFull /> : <LikeIcon />}
         </div>
       </Link>
       <Link to="/profile">

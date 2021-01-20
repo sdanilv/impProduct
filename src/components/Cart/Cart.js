@@ -30,7 +30,7 @@ const Cart = ({ cart }) => {
         <LinkToShop />
       </div>
       <div className={classes.productsTable}>
-        {productsMap.length ? productsMap : <Empty text="Ваша козина пуста" />}
+        {productsMap.length ? productsMap : <Empty text="Ваша корзина пуста" />}
       </div>
       <div className={classes.totalCount}>
         <div>Всего:</div>

@@ -3,18 +3,14 @@ import classes from "./Card.module.css";
 import { Link } from "react-router-dom";
 import ButtonPanel from "../Tools/ButtonPanel";
 
-const Card = ({ product, seeAllCards, ...buttonPanel }) => {
+const Card = ({ product,  ...buttonPanel }) => {
   const { name, price, img, id } = product;
-  const clickHandler = () => {
-    seeAllCards();
 
-  };
   return (
     <div className={classes.card}>
       <Link to={`/product/${id}`}>
         <img
           className={classes.cardImage}
-          onClick={clickHandler}
           alt="cardImage"
           src={img[0]}
         />
