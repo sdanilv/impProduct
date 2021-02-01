@@ -1,34 +1,33 @@
 import React from "react";
 import classes from "../Product/Panel.module.css";
 import { CartIcon, CartIconFull, LikeIcon, LikeIconFull } from "./Icons";
+import { useRecoilValue } from "recoil";
+import { isLikedSelector, useLikesReducers } from "../../atoms/LikesAtoms";
+import { getCartProductCount, useAddProduct } from "../../atoms/CartAtoms";
 
-const ButtonPanel = ({
-  addToCart,
-  removeLike,
-  addLike,
-  isLiked,
-  product,
-  getCartProductCount,
-}) => {
+const ButtonPanel = ({ product }) => {
   const { id } = product;
-  const cartCount = getCartProductCount(id);
 
+  const isLiked = useRecoilValue(isLikedSelector(id));
+  const cartCount = useRecoilValue(getCartProductCount(id));
+  const { removeLike, addLike } = useLikesReducers(id);
+  const addToCart = useAddProduct(product);
   return (
     <div className={classes.panelButtonContainer}>
       <div className={classes.cart}>
         {cartCount ? (
           <div badge={cartCount}>
-            <CartIconFull onClick={() => addToCart(product)} />
+            <CartIconFull onClick={() => addToCart()} />
           </div>
         ) : (
-          <CartIcon onClick={() => addToCart(product)} />
+          <CartIcon onClick={() => addToCart()} />
         )}
       </div>
       <div>
-        {isLiked(id) ? (
-          <LikeIconFull onClick={() => removeLike(id)} />
+        {isLiked ? (
+          <LikeIconFull onClick={removeLike} />
         ) : (
-          <LikeIcon onClick={() => addLike(id)} />
+          <LikeIcon onClick={addLike} />
         )}
       </div>
     </div>

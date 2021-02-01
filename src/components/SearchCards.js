@@ -1,20 +1,19 @@
-import React, {useState} from 'react';
+import React from "react";
 import SearchInput from "./Tools/SearchInput";
+import Cards from "./Cards/Cards";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { filterAtom, filteredProductsSelector } from "../atoms/ProductsAtom";
 
-
-const SearchCards = ({CardsShell, productsList}) => {
-    const [cards, setCards] = useState(productsList);
-    const seeSearchedCards = ({ target }) => {
-        setCards(
-            productsList.filter(({ name }) => ~name.search(RegExp(target.value, "i")))
-        );
-    };
-    return (
-        <>
-            <SearchInput onChange={seeSearchedCards} />
-            <CardsShell cards={cards} />
-        </>
-    );
+const SearchCards = () => {
+  const filteredProducts = useRecoilValue(filteredProductsSelector);
+  const setFilter = useSetRecoilState(filterAtom);
+  const seeSearchedCards = ({ target }) => setFilter(target.value);
+  return (
+    <>
+      <SearchInput onChange={seeSearchedCards} />
+      <Cards cards={filteredProducts} />
+    </>
+  );
 };
 
 export default SearchCards;

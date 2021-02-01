@@ -1,8 +1,11 @@
 import React from "react";
 import classes from "./CartPopup.module.css";
 import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { cartAtoms } from "../../atoms/CartAtoms";
 
-const CartPopup = ({ cartPopup }) => {
+const CartPopup = () => {
+  const { popup: cartPopup } = useRecoilValue(cartAtoms);
   return (
     <div
       className={`${classes.cartPanel}  

@@ -8,10 +8,14 @@ import Carousel from "../Tools/Carousel";
 import AnotherText from "./AnotherText";
 import { useParams } from "react-router-dom";
 import BuyButton from "../Tools/BuyButton";
+import AllCards from "../Cards/AllCards";
+import { useRecoilValue } from "recoil";
+import { productsAtom } from "../../atoms/ProductsAtom";
 
-const Product = ({ productsList,CardsShell, ...props }) => {
-  const {id} = useParams();
+const Product = ({ ...props }) => {
+  const { id } = useParams();
   const paramsId = useRef("");
+  const allProducts = useRecoilValue(productsAtom);
   useEffect(() => {
     if (id === paramsId) {
       return;
@@ -19,7 +23,7 @@ const Product = ({ productsList,CardsShell, ...props }) => {
     paramsId.current = id;
     window.scrollTo(0, 0);
   }, [id]);
-  const product = productsList.find(product=> id === product.id);
+  const product = allProducts.find((product) => id === product.id);
   if (!product) return <></>;
 
   const { name, price, description, img } = product;
@@ -36,7 +40,7 @@ const Product = ({ productsList,CardsShell, ...props }) => {
         </div>
       </div>
       <AnotherText />
-      <CardsShell cards={productsList} />
+      <AllCards />
     </>
   );
 };

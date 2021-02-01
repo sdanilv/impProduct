@@ -13,10 +13,16 @@ import {
   SearchIconFull,
 } from "./Tools/Icons";
 import classes from "./Menu.module.css";
+import { useRecoilValue } from "recoil";
+import { countLikeSelector } from "../atoms/LikesAtoms";
+import { cartAtoms, useRemovePopup } from "../atoms/CartAtoms";
 
+const Menu = () => {
+  const countLike = useRecoilValue(countLikeSelector);
+  const { count: cartCount } = useRecoilValue(cartAtoms);
+  const removePopup = useRemovePopup();
 
-const Menu = ({ countLike, cartCount, removePopup }) => {
-const isAddedToCart = useRef(false)
+  const isAddedToCart = useRef(false);
   const { pathname } = useLocation();
   const [, setState] = useState(null);
   useEffect(() => {
@@ -33,7 +39,7 @@ const isAddedToCart = useRef(false)
       }}
       className={classes.menu}
     >
-      <a className={classes.skipLink} href="#start-of-content">
+      <a className={classes.skipLink} href={"#start-of-content"}>
         Перейти к основному контенту
       </a>
       <Link to="/">{pathname === "/" ? <HomeIconFull /> : <HomeIcon />}</Link>

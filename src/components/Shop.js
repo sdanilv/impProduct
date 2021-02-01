@@ -7,66 +7,43 @@ import Product from "./Product/Product";
 import Cart from "./Cart/Cart";
 import SearchCards from "./SearchCards";
 import CartPopup from "./Cart/CartPopup";
-import { useLikes } from "../hooks/useLikes";
-import { useCart } from "../hooks/useCart";
-import {useDarkTheme} from "../hooks/useDarkTheme";
+import { useDarkTheme } from "../hooks/useDarkTheme";
 import classes from "./Shop.module.css";
+import { countLikeSelector, likedCardsSelector } from "../atoms/LikesAtoms";
+import { useRecoilValue } from "recoil";
+import { useSavedCart } from "../atoms/CartAtoms";
+import AllCards from "./Cards/AllCards";
 
-const Shop = ({ productsList }) => {
-  const { likedCards, countLike, ...likes } = useLikes(productsList);
-  const darkTheme = useDarkTheme()
-  const {
-    addToCart,
-    cartCount,
-    cartPopup,
-    getCartProductCount,
-    removePopup,
-    ...cart
-  } = useCart(productsList);
-
-  const CardsShell = ({ cards }) => (
-    <Cards
-      {...{
-        ...likes,
-        addToCart,
-        cards,
-        getCartProductCount,
-      }}
-    />
-  );
+const Shop = () => {
+  useSavedCart();
+  const likedCards = useRecoilValue(likedCardsSelector);
+  const countLike = useRecoilValue(countLikeSelector);
+  const darkTheme = useDarkTheme();
 
   return (
     <BrowserRouter>
       <div className={classes.shop}>
-        <Menu {...{ countLike, cartCount, removePopup }} />
+        <Menu {...{ countLike }} />
         <div className={classes.container}>
           <Route exact path={["/"]}>
-            <CardsShell cards={productsList} />
+            <AllCards />
           </Route>
           <Route path="/product/:id">
-            <Product
-              {...{
-                ...likes,
-                addToCart,
-                getCartProductCount,
-                CardsShell,
-                productsList,
-              }}
-            />
+            <Product />
           </Route>
           <Route path="/search">
-            <SearchCards CardsShell={CardsShell} productsList={productsList} />
+            <SearchCards />
           </Route>
           <Route path="/cart">
-            <Cart cart={cart} />
+            <Cart />
           </Route>
           <Route exact path={["/like"]}>
-            <CardsShell cards={likedCards} />
+            <Cards cards={likedCards} />
           </Route>
           <Route path="/profile">
             <Profile {...darkTheme} />
           </Route>
-          <CartPopup cartPopup={cartPopup} />
+          <CartPopup />
         </div>
       </div>
     </BrowserRouter>

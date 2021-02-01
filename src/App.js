@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { getAllProducts } from "./api";
+import React from "react";
 import Shop from "./components/Shop";
 import Loader from "./components/Tools/Loader";
+import { productsAtom, useFetchProduct } from "./atoms/ProductsAtom";
+import { useRecoilValue } from "recoil";
 
 const App = () => {
-  const [productsList, setProductsList] = useState([]);
-  useEffect(() => {
-    (async () => {
-      const fetchedProducts = await getAllProducts();
-      setProductsList(fetchedProducts);
-    })();
-  }, []);
-  if (productsList.length) return <Shop productsList={productsList} />;
+  useFetchProduct();
+  const productsList = useRecoilValue(productsAtom);
+  if (productsList.length) return <Shop />;
   return <Loader />;
 };
 
