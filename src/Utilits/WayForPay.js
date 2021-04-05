@@ -9,16 +9,14 @@ export const pay = async (productName, productPrice, productCount=[1], productsI
 
   const date = new Date().valueOf();
   const obj = {
-    merchantAccount: "test_merch_n1",
-    merchantDomainName: "www.market.ua",
+    merchantAccount: "event_demo_impulse_ottry_com",
+    merchantDomainName: "impulse.ottry.com",
     orderReference: "D" + date,
     orderDate: date,
     amount: sum,
     currency: "UAH",
   };
-console.log({...    obj,productName,
-  productCount,
-  productPrice,})
+
   const {merchantSignature} = await generateSalt({ productsId,productCount, date })
 
   wayforpay.run({
@@ -26,8 +24,9 @@ console.log({...    obj,productName,
     productName,
     productCount,
     productPrice,
-    straightWidget: true,
-    partnerCode: ["test_merch_n1", "ottry"],
+    straightWidget: false,
+    paymentSystems:"card;privat24;googlePay;applePay;masterPass",
+    // partnerCode: ["event_demo_impulse_ottry_com"],
     partnerPrice: [sum * 0.95, sum * 0.05],
     authorizationType: "SimpleSignature",
     defaultPaymentSystem: "card",

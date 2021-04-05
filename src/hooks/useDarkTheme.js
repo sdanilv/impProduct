@@ -29,7 +29,6 @@ export const useDarkTheme = () => {
             document.documentElement.style.setProperty("--input-color", "white");
         }
         localStorage.setItem("darkTheme", JSON.stringify(darkTheme));
-        console.log(darkTheme)
     }, [darkTheme]);
     return {darkTheme, themeToggleHandler}
 }

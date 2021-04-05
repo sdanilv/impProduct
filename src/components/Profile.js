@@ -48,18 +48,26 @@ const Profile = ({ darkTheme, themeToggleHandler }) => {
         <Spoiler
           name="Настройки"
           value={
-            <button
-              className={classes.themeToggle}
-              onClick={themeToggleHandler}
-            >
-              {darkTheme ? "Светлая тема" : "Темная тема"}
-            </button>
+            <>
+              <button
+                className={classes.themeToggle}
+                onClick={themeToggleHandler}
+              >
+                {darkTheme ? "Светлая тема" : "Темная тема"}
+              </button>
+             <div> <button
+                className={classes.themeToggle}
+                onClick={()=> localStorage.clear()}
+              >
+                Очистить данные
+              </button></div>
+            </>
           }
         />
       </div>
       <div className={classes.copyright}>
         Правила. Условия. Конфиденциальность.
-        <br /> © 2021 EasyShop v.1.1.0
+        <br /> © 2021 EasyShop v.1.1.4
       </div>
     </div>
   );

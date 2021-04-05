@@ -30,6 +30,9 @@
   text-align: center;
 }
 .themeToggle {
+  border-width: 1px;
+  margin-bottom: 5px;
+  padding: 3px;
   border-radius: 5px;
   background: var(--background-color);
   color: var(--text-color);
